@@ -7,7 +7,7 @@ import { ToolProps } from "@/types"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // fetch data
-    const data = await fetch(`http://localhost:3000/api/tools`).then((res) =>
+    const data = await fetch(`http://127.0.0.1:3000/api/tools`).then((res) =>
         res.json()
     )
 

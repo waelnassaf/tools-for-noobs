@@ -5,7 +5,7 @@ import { FilterProps } from "@/types"
 export async function fetchTools(filters: FilterProps) {
     const { sq, cat, limit } = filters
 
-    let url = "http://localhost:3000/api/tools"
+    let url = "http://127.0.0.1:3000/api/tools"
 
     if (sq || cat || limit) {
         url += "?"
@@ -31,7 +31,7 @@ export async function fetchTools(filters: FilterProps) {
 }
 
 export async function findCat(id: number) {
-    const response = await fetch(`http://localhost:3000/api/categories/${id}`, {
+    const response = await fetch(`http://127.0.0.1:3000/api/categories/${id}`, {
         cache: "no-cache",
     })
 
@@ -83,7 +83,7 @@ export const deleteSearchParams = (type: string) => {
 
 export async function getDesc(toolName: string, toolCat: number) {
     const data = await fetch(
-        `http://localhost:3000/api/tools?sq=${toolName}&cat=${toolCat}`
+        `http://127.0.0.1:3000/api/tools?sq=${toolName}&cat=${toolCat}`
     ).then((res) => res.json())
 
     return data[0].desc
