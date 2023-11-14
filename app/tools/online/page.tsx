@@ -1,14 +1,9 @@
 import { fetchTools } from "@/utils"
-import { HomeProps } from "@/types"
+import { ToolCard, ShowMore } from "@/components"
 
-import { CustomFilter, SearchBar, ToolCard, ShowMore } from "@/components"
-import { categoriesOfTools } from "@/constants"
-
-export default async function Home({ searchParams }: HomeProps) {
+export default async function Page() {
     const allTools = await fetchTools({
-        sq: searchParams.sq,
-        cat: searchParams.cat,
-        limit: searchParams.limit,
+        cat: "3",
     })
 
     const isDataEmpty =
@@ -17,16 +12,8 @@ export default async function Home({ searchParams }: HomeProps) {
     return (
         <div className="mt-12 padding-x padding-y max-width">
             <div className="home__text-container">
-                <h1 className="text-4xl font-extrabold">Search Tools</h1>
-                <p>View and search hundreds of useful tools.</p>
-            </div>
-
-            <div className="home__filters px-6">
-                <SearchBar />
-
-                <div className="home__filter-container">
-                    <CustomFilter title="cat" options={categoriesOfTools} />
-                </div>
+                <h1 className="text-4xl font-extrabold">Online Tools</h1>
+                <p>Use our large collection of online tools.</p>
             </div>
 
             {!isDataEmpty ? (
@@ -36,10 +23,10 @@ export default async function Home({ searchParams }: HomeProps) {
                             <ToolCard key={index} tool={tool} />
                         ))}
                     </div>
-                    <ShowMore
-                        pageNumber={(searchParams.limit || 10) / 10}
-                        isNext={(searchParams.limit || 10) > allTools.length}
-                    />
+                    {/*<ShowMore*/}
+                    {/*    pageNumber={(searchParams.limit || 10) / 10}*/}
+                    {/*    isNext={(searchParams.limit || 10) > allTools.length}*/}
+                    {/*/>*/}
                 </section>
             ) : (
                 <div className="home__error-container">
