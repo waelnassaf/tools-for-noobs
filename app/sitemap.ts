@@ -51,22 +51,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Map through the data array and append new objects to the sitemap array
     // @ts-ignore
-    data.forEach((tool) => {
-        let category = ""
-        if (tool.categoryId === 1) {
-            category = "text"
-        } else if (tool.categoryId === 2) {
-            category = "image"
-        } else if (tool.categoryId === 3) {
-            category = "online"
-        }
+    data &&
+        data.forEach((tool: ToolProps) => {
+            let category = ""
+            if (tool.categoryId === 1) {
+                category = "text"
+            } else if (tool.categoryId === 2) {
+                category = "image"
+            } else if (tool.categoryId === 3) {
+                category = "online"
+            }
 
-        sitemap.push({
-            url: `https://toolsfornoobs.com/tools/${category}/${tool.slug}`,
-            changeFrequency: "weekly",
-            priority: 1,
+            sitemap.push({
+                url: `https://toolsfornoobs.com/tools/${category}/${tool.slug}`,
+                changeFrequency: "weekly",
+                priority: 1,
+            })
         })
-    })
     // @ts-ignore
     return sitemap
 }
