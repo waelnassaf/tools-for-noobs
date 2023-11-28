@@ -11,13 +11,11 @@ datasource db {
 }
 
 model Tool {
-  id         Int      @id @default(autoincrement())
-  name       String   @unique
+  id         Int     @id @default(autoincrement())
+  name       String  @unique
   desc       String
-  slug       String?  @unique
+  slug       String? @unique
   categoryId Int
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
 
   category Category @relation(fields: [categoryId], references: [id])
 
@@ -25,11 +23,9 @@ model Tool {
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  tools     Tool[] // Define a one-to-many relationship with the Tool model
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  tools Tool[] // Define a one-to-many relationship with the Tool model
 
   @@index([name], type: BTree)
 }

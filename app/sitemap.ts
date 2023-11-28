@@ -14,43 +14,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const sitemap = [
         {
             url: "https://toolsfornoobs.com",
-            lastModified: new Date(),
             changeFrequency: "daily",
             priority: 1,
         },
         {
             url: "https://toolsfornoobs.com/tools/text",
-            lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 1,
         },
         {
             url: "https://toolsfornoobs.com/tools/image",
-            lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 1,
         },
         {
             url: "https://toolsfornoobs.com/tools/online",
-            lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 1,
         },
         {
             url: "https://toolsfornoobs.com/about-us",
-            lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
             url: "https://toolsfornoobs.com/privacy-policy",
-            lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
             url: "https://toolsfornoobs.com/terms-n-conditions",
-            lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
         },
@@ -70,7 +63,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         sitemap.push({
             url: `https://toolsfornoobs.com/tools/${category}/${tool.slug}`,
-            lastModified: new Date(tool.updatedAt),
             changeFrequency: "weekly",
             priority: 1,
         })
