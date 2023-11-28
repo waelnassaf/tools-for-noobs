@@ -50,7 +50,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ]
 
     // Map through the data array and append new objects to the sitemap array
-    // @ts-ignore
     data &&
         data.forEach((tool: ToolProps) => {
             let category = ""
