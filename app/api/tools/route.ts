@@ -20,11 +20,13 @@ const getAllTools = async (
         const query: ToolQuery = {
             where: {},
         }
+
         if (sq !== null) {
             query.where.name = {
                 contains: sq,
             }
         }
+
         if (cat !== null && !isNaN(Number(cat)) && Number(cat) !== 0) {
             query.where.categoryId = Number(cat)
         }

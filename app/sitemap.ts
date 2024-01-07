@@ -1,15 +1,13 @@
 import { MetadataRoute } from "next"
-import { fetchTools } from "@/utils"
 import { ToolProps } from "@/types"
+import { getTools } from "@/server/actions"
 //page-sitemap
 //tools-sitemap
 //categories-sitemap
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // fetch data
-    const data = await fetch(`http://127.0.0.1:3000/api/tools`).then((res) =>
-        res.json()
-    )
+    const data = await getTools({})
 
     const sitemap = [
         {

@@ -1,10 +1,9 @@
-import { fetchTools } from "@/utils"
 import { ToolCard, ShowMore, Breadcrumb } from "@/components"
-import Link from "next/link"
+import { getTools } from "@/server/actions"
 
 export default async function Page() {
-    const allTools = await fetchTools({
-        cat: "2",
+    const allTools = await getTools({
+        cat: 2,
     })
 
     const isDataEmpty =
@@ -14,7 +13,7 @@ export default async function Page() {
 
     return (
         <div className="mt-12 padding-x padding-b max-width">
-            <Breadcrumb pages={pages} />;
+            <Breadcrumb pages={pages} />
             <div className="home__text-container">
                 <h1 className="text-4xl font-extrabold">Image Tools</h1>
                 <p>Use our large collection of image manipulation tools.</p>

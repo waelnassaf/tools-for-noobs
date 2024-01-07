@@ -47,9 +47,9 @@ export interface HomeProps {
 
 export interface ToolProps {
     name: string
-    categoryId: number
-    desc: string
     slug: string
+    desc: string
+    categoryId: number
 }
 
 export interface ResultAlertProps {

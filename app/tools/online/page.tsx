@@ -1,9 +1,9 @@
-import { fetchTools } from "@/utils"
+import { getTools } from "@/server/actions"
 import { ToolCard, ShowMore } from "@/components"
 
 export default async function Page() {
-    const allTools = await fetchTools({
-        cat: "3",
+    const allTools = await getTools({
+        cat: 3,
     })
 
     const isDataEmpty =

@@ -153,7 +153,6 @@ const config = {
     "db"
   ],
   "activeProvider": "mysql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -163,8 +162,7 @@ const config = {
     }
   },
   "inlineSchema": "Ly8gVGhpcyBpcyB5b3VyIFByaXNtYSBzY2hlbWEgZmlsZSwKLy8gbGVhcm4gbW9yZSBhYm91dCBpdCBpbiB0aGUgZG9jczogaHR0cHM6Ly9wcmlzLmx5L2QvcHJpc21hLXNjaGVtYQoKZ2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgICA9ICIuL2dlbmVyYXRlZC9jbGllbnQiCn0KCmRhdGFzb3VyY2UgZGIgewogIHByb3ZpZGVyID0gIm15c3FsIgogIHVybCAgICAgID0gZW52KCJEQVRBQkFTRV9VUkwiKQp9Cgptb2RlbCBUb29sIHsKICBpZCAgICAgICAgIEludCAgICAgQGlkIEBkZWZhdWx0KGF1dG9pbmNyZW1lbnQoKSkKICBuYW1lICAgICAgIFN0cmluZyAgQHVuaXF1ZQogIGRlc2MgICAgICAgU3RyaW5nCiAgc2x1ZyAgICAgICBTdHJpbmc/IEB1bmlxdWUKICBjYXRlZ29yeUlkIEludAoKICBjYXRlZ29yeSBDYXRlZ29yeSBAcmVsYXRpb24oZmllbGRzOiBbY2F0ZWdvcnlJZF0sIHJlZmVyZW5jZXM6IFtpZF0pCgogIEBAaW5kZXgoW25hbWVdLCB0eXBlOiBCVHJlZSkKfQoKbW9kZWwgQ2F0ZWdvcnkgewogIGlkICAgIEludCAgICBAaWQgQGRlZmF1bHQoYXV0b2luY3JlbWVudCgpKQogIG5hbWUgIFN0cmluZyBAdW5pcXVlCiAgdG9vbHMgVG9vbFtdIC8vIERlZmluZSBhIG9uZS10by1tYW55IHJlbGF0aW9uc2hpcCB3aXRoIHRoZSBUb29sIG1vZGVsCgogIEBAaW5kZXgoW25hbWVdLCB0eXBlOiBCVHJlZSkKfQo=",
-  "inlineSchemaHash": "dfae87de2bbd80470f735b8c5074bd7fb8b72c2fa8c1302c4bad62e843b6032b",
-  "noEngine": false
+  "inlineSchemaHash": "dfae87de2bbd80470f735b8c5074bd7fb8b72c2fa8c1302c4bad62e843b6032b"
 }
 
 const fs = require('fs')

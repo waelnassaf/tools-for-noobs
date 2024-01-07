@@ -1,13 +1,12 @@
-import { fetchTools } from "@/utils"
 import { HomeProps } from "@/types"
-
 import { CustomFilter, SearchBar, ToolCard, ShowMore } from "@/components"
 import { categoriesOfTools } from "@/constants"
+import { getTools } from "@/server/actions"
 
 export default async function Home({ searchParams }: HomeProps) {
-    const allTools = await fetchTools({
+    const allTools = await getTools({
         sq: searchParams.sq,
-        cat: searchParams.cat,
+        cat: Number(searchParams.cat),
         limit: searchParams.limit,
     })
 

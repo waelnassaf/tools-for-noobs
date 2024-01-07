@@ -1,6 +1,5 @@
 import { sitename } from "@/constants"
 const toolName: string = "Grayscale Image"
-
 import type { Metadata } from "next"
 import { getDesc } from "@/utils"
 

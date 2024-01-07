@@ -1,43 +1,7 @@
 // imageConverter.js
 
 import { FilterProps } from "@/types"
-
-export async function fetchTools(filters: FilterProps) {
-    const { sq, cat, limit } = filters
-
-    let url = "http://127.0.0.1:3000/api/tools"
-
-    if (sq || cat || limit) {
-        url += "?"
-
-        if (sq) {
-            url += `sq=${sq}&`
-        }
-
-        if (cat) {
-            url += `cat=${cat}&`
-        }
-
-        if (limit) {
-            url += `limit=${limit}&`
-        }
-
-        // Remove the trailing '&' character
-        url = url.slice(0, -1)
-    }
-
-    const response = await fetch(url, {})
-    return await response.json()
-}
-
-export async function findCat(id: number) {
-    const response = await fetch(`http://127.0.0.1:3000/api/categories/${id}`, {
-        cache: "no-cache",
-    })
-
-    const data = await response.json()
-    return data.name
-}
+import prisma from "@/prisma/client"
 
 export function slugify(str: string) {
     return String(str)
@@ -82,9 +46,12 @@ export const deleteSearchParams = (type: string) => {
 }
 
 export async function getDesc(toolName: string, toolCat: number) {
-    const data = await fetch(
-        `http://127.0.0.1:3000/api/tools?sq=${toolName}&cat=${toolCat}`
-    ).then((res) => res.json())
+    const tool = await prisma.tool.findFirst({
+        where: {
+            name: toolName,
+            categoryId: toolCat,
+        },
+    })
 
-    return data[0].desc
+    return tool ? tool.desc : null
 }

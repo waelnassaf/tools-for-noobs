@@ -5,7 +5,6 @@ const Page = () => {
         <div className="bg-gray-100">
             <div className="container mx-auto p-8">
                 <h1 className="text-2xl font-semibold mb-4">Privacy Policy</h1>
-
                 <div className="prose prose-lg mb-8">
                     <h2>General</h2>
                     <p>

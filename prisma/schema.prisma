@@ -1,9 +1,8 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+//
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
 }
 
 datasource db {
@@ -12,10 +11,10 @@ datasource db {
 }
 
 model Tool {
-  id         Int     @id @default(autoincrement())
-  name       String  @unique
+  id         Int    @id @default(autoincrement())
+  name       String @unique
   desc       String
-  slug       String? @unique
+  slug       String @unique
   categoryId Int
 
   category Category @relation(fields: [categoryId], references: [id])
