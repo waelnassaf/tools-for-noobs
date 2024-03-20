@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { Breadcrumb, ResultAlert, SubmitButton } from "@/components"
+import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
 export default function Home() {
     const [textResult, setTextResult] = useState<string>("")
@@ -39,44 +39,48 @@ export default function Home() {
     const pages = ["Home", "Text Tools", "Text Reverser"]
 
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <Breadcrumb pages={pages} />
-            <h1>Text Reverser</h1>
-            <p>
-                Paste the text in the following input to get the reversed text:
-            </p>
-            <textarea
-                className="textarea textarea-lg block textarea-bordered
-                  textarea-ghost w-full md:w-3/4 h-80"
-                placeholder="Paste text here"
-                ref={textarea}
-            ></textarea>
-
-            <SubmitButton text={"Reverse Text"} handleClick={reverseText} />
-
-            <ResultAlert
-                showAlert={showAlert}
-                isEmpty={isEmpty}
-                message={`${textResult}`}
-                hideAlert={() => setShowAlert(false)}
-                alertDiv={alertDiv}
-            />
-
-            <div className="flex flex-col w-3/4 mx-auto my-4">
-                <div className="divider"></div>
-            </div>
-
-            <div className="tool-content">
-                <h2>About Text Reverser</h2>
+        <>
+            <Breadcrumbs pages={pages} />
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>Text Reverser</h1>
                 <p>
-                    This tool <b>Text Reverser</b> is a handy utility for
-                    programmers, writers or just data entry people looking to
-                    reverse the order of characters in a certain text. Whether
-                    you&apos;re dealing with text, lists, or data entries, this
-                    tool helps streamline your text by reversing the order of
-                    characters, leaving you with the reversed text.
+                    Paste the text in the following input to get the reversed
+                    text:
                 </p>
+                <textarea
+                    className="textarea textarea-lg block textarea-bordered
+                  textarea-ghost w-full md:w-3/4 h-80"
+                    placeholder="Paste text here"
+                    ref={textarea}
+                ></textarea>
+
+                <SubmitButton text={"Reverse Text"} handleClick={reverseText} />
+
+                <ResultAlert
+                    showAlert={showAlert}
+                    isEmpty={isEmpty}
+                    message={`${textResult}`}
+                    hideAlert={() => setShowAlert(false)}
+                    alertDiv={alertDiv}
+                />
+
+                <div className="flex flex-col w-3/4 mx-auto my-4">
+                    <div className="divider"></div>
+                </div>
+
+                <div className="tool-content">
+                    <h2>About Text Reverser</h2>
+                    <p>
+                        This tool <b>Text Reverser</b> is a handy utility for
+                        programmers, writers or just data entry people looking
+                        to reverse the order of characters in a certain text.
+                        Whether you&apos;re dealing with text, lists, or data
+                        entries, this tool helps streamline your text by
+                        reversing the order of characters, leaving you with the
+                        reversed text.
+                    </p>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

@@ -10,7 +10,9 @@ import ToolCard from "./ToolCard"
 import SearchTool from "./SearchTool"
 import ResultAlert from "./ResultAlert"
 import SubmitButton from "./SubmitButton"
-import Breadcrumb from "./Breadcrumb"
+import Breadcrumbs from "./Breadcrumbs"
+import ToolsByCat from "./ToolsByCat"
+import Mode from "./Mode"
 
 export {
     CustomButton,
@@ -25,5 +27,7 @@ export {
     SearchTool,
     ResultAlert,
     SubmitButton,
-    Breadcrumb,
+    Breadcrumbs,
+    ToolsByCat,
+    Mode,
 }

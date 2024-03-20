@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { SearchBarProps } from "@/types"
 import React, { useState } from "react"
 import { SearchTool } from "@/components"
 import { useRouter } from "next/navigation"

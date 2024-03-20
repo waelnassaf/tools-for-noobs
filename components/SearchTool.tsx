@@ -1,7 +1,6 @@
 "use client"
 
 import { Fragment, useState } from "react"
-import Link from "next/link"
 import { Combobox, Transition } from "@headlessui/react"
 import { FaHammer } from "react-icons/fa"
 import { SearchToolProps } from "@/types"

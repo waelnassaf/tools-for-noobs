@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import CustomButton from "./CustomButton"
 import { AnimatePresence, motion } from "framer-motion"
@@ -29,7 +28,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
                     href={`/tools/${categoriesOfTools[categoryId]["value"]}/${slug}`}
                     as={`/tools/${categoriesOfTools[categoryId]["value"]}/${slug}`}
                 >
-                    <div className="car-card group">
+                    <div className="car-card group h-full">
                         <div className="car-card__content">
                             <h2 className="car-card__content-title">
                                 {categoriesOfTools[categoryId]["title"]}

@@ -18,9 +18,8 @@ interface GetToolsParams {
     limit?: number
 }
 
-export const getTools = async ({ sq, cat, limit }: GetToolsParams) => {
+export const getTools = async ({ sq, cat, limit = 9 }: GetToolsParams = {}) => {
     try {
-        // Building the query
         const query: ToolQuery = {
             where: {},
         }

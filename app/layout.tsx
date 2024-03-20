@@ -1,6 +1,7 @@
 import "./globals.css"
 import { Header, Navbar, Footer, Divider } from "@/components"
 import { sitename } from "@/constants"
+import ThemeContextProvider from "@/contexts/ThemeContext"
 
 export const metadata = {
     title: `${sitename} - A pro toolset, made simple.`,
@@ -13,17 +14,19 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body className="font-inter">
-                <main className="overflow-hidden">
-                    <Header />
-                    <Divider />
-                    <Navbar />
-                    <Divider />
-                    {children}
-                    <Footer />
-                </main>
-            </body>
-        </html>
+        <ThemeContextProvider>
+            <html lang="en">
+                <body className="font-inter">
+                    <main className="overflow-hidden">
+                        <Header />
+                        <Divider />
+                        <Navbar />
+                        <Divider />
+                        {children}
+                        <Footer />
+                    </main>
+                </body>
+            </html>
+        </ThemeContextProvider>
     )
 }

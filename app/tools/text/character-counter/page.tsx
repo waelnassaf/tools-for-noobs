@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { ResultAlert, SubmitButton } from "@/components"
+import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
 export default function Home() {
     const [characterCount, setCharacterCount] = useState(0)
@@ -26,45 +26,50 @@ export default function Home() {
         }, 0)
     }
 
+    const pages = ["Home", "Text Tools", "Character Counter"]
+
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <h1>Character Counter</h1>
-            <p>
-                Paste the text in the following input to get the character
-                count:
-            </p>
-            <textarea
-                className="textarea textarea-lg block textarea-bordered
-                    textarea-ghost w-full md:w-3/4 h-80"
-                placeholder="Paste text here"
-                ref={textarea}
-            ></textarea>
-
-            <SubmitButton
-                text={"Count Characters"}
-                handleClick={countCharacters}
-            />
-
-            <ResultAlert
-                showAlert={showAlert}
-                isEmpty={isEmpty}
-                message={`Number of Character: ${characterCount}`}
-                hideAlert={() => setShowAlert(false)}
-                alertDiv={alertDiv}
-            />
-
-            <div className="flex flex-col w-3/4 mx-auto my-4">
-                <div className="divider"></div>
-            </div>
-
-            <div className="tool-content">
-                <h2>About Character Counter</h2>
+        <>
+            <Breadcrumbs pages={pages} />
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>Character Counter</h1>
                 <p>
-                    This tool <b>Character Counter</b> is used by people who
-                    want a quick way to determine the number of characters in a
-                    specific text.
+                    Paste the text in the following input to get the character
+                    count:
                 </p>
+                <textarea
+                    className="textarea textarea-lg block textarea-bordered
+                    textarea-ghost w-full md:w-3/4 h-80"
+                    placeholder="Paste text here"
+                    ref={textarea}
+                ></textarea>
+
+                <SubmitButton
+                    text={"Count Characters"}
+                    handleClick={countCharacters}
+                />
+
+                <ResultAlert
+                    showAlert={showAlert}
+                    isEmpty={isEmpty}
+                    message={`Number of Character: ${characterCount}`}
+                    hideAlert={() => setShowAlert(false)}
+                    alertDiv={alertDiv}
+                />
+
+                <div className="flex flex-col w-3/4 mx-auto my-4">
+                    <div className="divider"></div>
+                </div>
+
+                <div className="tool-content">
+                    <h2>About Character Counter</h2>
+                    <p>
+                        This tool <b>Character Counter</b> is used by people who
+                        want a quick way to determine the number of characters
+                        in a specific text.
+                    </p>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

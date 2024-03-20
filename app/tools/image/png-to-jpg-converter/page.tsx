@@ -3,13 +3,15 @@
 import { useState } from "react"
 // @ts-ignore
 import Jimp from "jimp/es"
-import { SubmitButton } from "@/components" // You may need to create these components
-import { FileInput, ImageDisplay } from "@/app/tools/image/components"
+import { SubmitButton, Breadcrumbs } from "@/components"
+import { FileInput, ImageDisplay } from "../components"
 
 const Page = () => {
     const [convertedURL, setConvertedURL] = useState(null)
     const [preview, setPreview] = useState<string>("")
     const [showConvertButton, setShowConvertButton] = useState(false)
+
+    const pages = ["Home", "Image Tools", "PNG to JPG Converter"]
 
     const handleDrop = (files: FileList) => {
         // Handle dropped files
@@ -56,29 +58,35 @@ const Page = () => {
     }
 
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <h1>PNG to JPG Converter</h1>
-            <p>Choose or Drop PNG file to change its type to JPG:</p>
+        <>
+            <Breadcrumbs pages={pages} />
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>PNG to JPG Converter</h1>
+                <p>Choose or Drop PNG file to change its type to JPG:</p>
 
-            <div className="max-w-xl mx-auto">
-                <FileInput onDrop={handleDrop} accept=".png" />
-                {preview && <ImageDisplay src={preview} alt="PNG Image" />}
+                <div className="max-w-xl mx-auto">
+                    <FileInput onDrop={handleDrop} accept=".png" />
+                    {preview && <ImageDisplay src={preview} alt="PNG Image" />}
 
-                {showConvertButton && (
-                    <SubmitButton
-                        text="Convert to JPG"
-                        handleClick={handleImageConversion}
-                    />
-                )}
+                    {showConvertButton && (
+                        <SubmitButton
+                            text="Convert to JPG"
+                            handleClick={handleImageConversion}
+                        />
+                    )}
 
-                {convertedURL && (
-                    <>
-                        <h3>JPG Image:</h3>
-                        <ImageDisplay src={convertedURL} alt="Converted JPG" />
-                    </>
-                )}
+                    {convertedURL && (
+                        <>
+                            <h3>JPG Image:</h3>
+                            <ImageDisplay
+                                src={convertedURL}
+                                alt="Converted JPG"
+                            />
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

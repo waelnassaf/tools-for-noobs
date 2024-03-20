@@ -13,8 +13,8 @@ const ImageDisplay = ({ src, alt }: ImageDisplayProps) => {
             <Image
                 src={src}
                 alt={alt}
-                width={"100"}
-                height={"100"}
+                width={0}
+                height={0}
                 style={{
                     objectFit: "cover",
                     height: "300px",

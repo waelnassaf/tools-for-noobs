@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 
-import Logo from "@/public/logo.png"
+import Logo from "@/public/top-logo.svg"
 import AdBanner from "@/public/adsense.png"
 
 const Header = () => {
@@ -12,8 +12,9 @@ const Header = () => {
                     <Image
                         src={Logo}
                         alt="Website Logo"
-                        height={150}
-                        width={250}
+                        height={0}
+                        width={0}
+                        className="h-[150px] w-[250px]"
                         priority
                     />
                 </Link>
@@ -26,7 +27,7 @@ const Header = () => {
                 >
                     <Image
                         src={AdBanner}
-                        alt="Header Logo"
+                        alt="Header Ad"
                         height={90}
                         width={730}
                     />

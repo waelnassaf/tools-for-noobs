@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { ResultAlert, SubmitButton } from "@/components"
+import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
 export default function Home() {
     const [lineCount, setLineCount] = useState(0)
@@ -23,60 +23,66 @@ export default function Home() {
             alertDiv.current?.scrollIntoView({ behavior: "smooth" })
         }, 0)
     }
+    const pages = ["Home", "Text Tools", "Line Counter"]
 
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <h1>Line Counter</h1>
-            <p>Paste the text in the following input to get the line count:</p>
-            <textarea
-                className="textarea textarea-lg block textarea-bordered
-                    textarea-ghost w-full md:w-3/4 h-80"
-                placeholder="Paste text here"
-                ref={textarea}
-            ></textarea>
-            <SubmitButton text={"Count Lines"} handleClick={countLines} />
-
-            <ResultAlert
-                showAlert={showAlert}
-                isEmpty={isEmpty}
-                message={`Number of Lines: ${lineCount}`}
-                hideAlert={() => setShowAlert(false)}
-                alertDiv={alertDiv}
-            />
-
-            <div className="flex flex-col w-3/4 mx-auto my-4">
-                <div className="divider"></div>
-            </div>
-
-            <div className="tool-content">
-                <h2>
-                    About <b>Line Counter</b>
-                </h2>
+        <>
+            <Breadcrumbs pages={pages} />
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>Line Counter</h1>
                 <p>
-                    This tool <b>Line Counter</b> is used by people who want a
-                    quick way to determine the number of lines in a specific
-                    text.
+                    Paste the text in the following input to get the line count:
                 </p>
-                <h2>
-                    Who would use <b>Line Counter</b>?
-                </h2>
-                <ul>
-                    <li>
-                        <b>Software Developers:</b> Programmers wanting to gauge
-                        the length of their code.
-                    </li>
-                    <li>
-                        <b>Writers:</b> Writers who want to get a quick glance
-                        on the complexity of their text.
-                    </li>
-                    <li>
-                        <b>Students:</b> Some students are presented with the
-                        problem to write a specific number of lines in their
-                        essay so that&apos;s why they&apos;d use a line counter
-                        service.
-                    </li>
-                </ul>
+                <textarea
+                    className="textarea textarea-lg block textarea-bordered
+                    textarea-ghost w-full md:w-3/4 h-80"
+                    placeholder="Paste text here"
+                    ref={textarea}
+                ></textarea>
+                <SubmitButton text={"Count Lines"} handleClick={countLines} />
+
+                <ResultAlert
+                    showAlert={showAlert}
+                    isEmpty={isEmpty}
+                    message={`Number of Lines: ${lineCount}`}
+                    hideAlert={() => setShowAlert(false)}
+                    alertDiv={alertDiv}
+                />
+
+                <div className="flex flex-col w-3/4 mx-auto my-4">
+                    <div className="divider"></div>
+                </div>
+
+                <div className="tool-content">
+                    <h2>
+                        About <b>Line Counter</b>
+                    </h2>
+                    <p>
+                        This tool <b>Line Counter</b> is used by people who want
+                        a quick way to determine the number of lines in a
+                        specific text.
+                    </p>
+                    <h2>
+                        Who would use <b>Line Counter</b>?
+                    </h2>
+                    <ul>
+                        <li>
+                            <b>Software Developers:</b> Programmers wanting to
+                            gauge the length of their code.
+                        </li>
+                        <li>
+                            <b>Writers:</b> Writers who want to get a quick
+                            glance on the complexity of their text.
+                        </li>
+                        <li>
+                            <b>Students:</b> Some students are presented with
+                            the problem to write a specific number of lines in
+                            their essay so that&apos;s why they&apos;d use a
+                            line counter service.
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

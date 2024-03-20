@@ -1,5 +1,3 @@
-// imageConverter.js
-
 import { FilterProps } from "@/types"
 import prisma from "@/prisma/client"
 
@@ -15,13 +13,8 @@ export function slugify(str: string) {
 }
 
 export const updateSearchParams = (type: string, value: any) => {
-    // Get the current URL search params
     const searchParams = new URLSearchParams(window.location.search)
-
-    // Set the specified search parameter to the given value
     searchParams.set(type, value)
-
-    // Set the specified search parameter to the given value
     return `${window.location.pathname}?${searchParams.toString()}`
 }
 
@@ -33,23 +26,19 @@ export const getSearchParam = (name: string) => {
 }
 
 export const deleteSearchParams = (type: string) => {
-    // Set the specified search parameter to the given value
     const newSearchParams = new URLSearchParams(window.location.search)
 
     alert(newSearchParams)
 
-    // Delete the specified search parameter
     newSearchParams.delete(type.toLocaleLowerCase())
 
-    // Construct the updated URL pathname with the deleted search parameter
     return `${window.location.pathname}?${newSearchParams.toString()}`
 }
 
-export async function getDesc(toolName: string, toolCat: number) {
-    const tool = await prisma.tool.findFirst({
+export async function getDesc(toolName: string) {
+    const tool = await prisma.tool.findUnique({
         where: {
             name: toolName,
-            categoryId: toolCat,
         },
     })
 

@@ -27,8 +27,11 @@ module.exports = {
                     100: "rgba(59,60,152,0.02)",
                 },
                 grey: "#747A88",
+                sun: "#fd6c21",
+                space: "#414a4c",
             },
         },
     },
     plugins: [require("@tailwindcss/typography"), require("daisyui")],
+    darkMode: "class",
 }

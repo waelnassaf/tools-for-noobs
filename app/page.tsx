@@ -1,9 +1,9 @@
-import { HomeProps } from "@/types"
+import { SearchParamsProps } from "@/types"
 import { CustomFilter, SearchBar, ToolCard, ShowMore } from "@/components"
 import { categoriesOfTools } from "@/constants"
 import { getTools } from "@/server/actions"
 
-export default async function Home({ searchParams }: HomeProps) {
+export default async function Home({ searchParams }: SearchParamsProps) {
     const allTools = await getTools({
         sq: searchParams.sq,
         cat: Number(searchParams.cat),
@@ -36,8 +36,8 @@ export default async function Home({ searchParams }: HomeProps) {
                         ))}
                     </div>
                     <ShowMore
-                        pageNumber={(searchParams.limit || 10) / 10}
-                        isNext={(searchParams.limit || 10) > allTools.length}
+                        pageNumber={(searchParams.limit || 9) / 9}
+                        isNext={(searchParams.limit || 9) > allTools.length}
                     />
                 </section>
             ) : (

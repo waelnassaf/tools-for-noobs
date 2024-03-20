@@ -41,7 +41,7 @@ export interface FilterProps {
     limit?: number
 }
 
-export interface HomeProps {
+export interface SearchParamsProps {
     searchParams: FilterProps
 }
 

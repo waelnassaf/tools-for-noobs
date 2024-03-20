@@ -6,7 +6,7 @@ import { getDesc } from "@/utils"
 export async function generateMetadata(): Promise<Metadata> {
     return {
         title: `${toolName} - ${sitename}`,
-        description: await getDesc(toolName, 1),
+        description: await getDesc(toolName),
     }
 }
 

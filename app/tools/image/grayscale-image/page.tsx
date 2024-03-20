@@ -3,13 +3,15 @@
 import { useState } from "react"
 // @ts-ignore
 import Jimp from "jimp/es"
-import { SubmitButton } from "@/components" // You may need to create these components
-import { FileInput, ImageDisplay } from "@/app/tools/image/components"
+import { Breadcrumbs, SubmitButton } from "@/components"
+import { FileInput, ImageDisplay } from "../components"
 
 const Page = () => {
     const [convertedURL, setConvertedURL] = useState(null)
     const [preview, setPreview] = useState<string>("")
     const [showConvertButton, setShowConvertButton] = useState(false)
+
+    const pages = ["Home", "Image Tools", "Grayscale Image"]
 
     const handleDrop = (files: FileList) => {
         // Handle dropped files
@@ -55,32 +57,35 @@ const Page = () => {
     }
 
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <h1>Grayscale Image Tool</h1>
-            <p>Choose or Drop Image file to transform it to grayscale:</p>
+        <>
+            <Breadcrumbs pages={pages} />
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>Grayscale Image Tool</h1>
+                <p>Choose or Drop Image file to transform it to grayscale:</p>
 
-            <div className="max-w-xl mx-auto">
-                <FileInput onDrop={handleDrop} />
-                {preview && <ImageDisplay src={preview} alt="Image" />}
+                <div className="max-w-xl mx-auto">
+                    <FileInput onDrop={handleDrop} />
+                    {preview && <ImageDisplay src={preview} alt="Image" />}
 
-                {showConvertButton && (
-                    <SubmitButton
-                        text="Grayscale Image"
-                        handleClick={handleImageConversion}
-                    />
-                )}
-
-                {convertedURL && (
-                    <>
-                        <h3>Grayscale Image:</h3>
-                        <ImageDisplay
-                            src={convertedURL}
-                            alt="Grayscale Image"
+                    {showConvertButton && (
+                        <SubmitButton
+                            text="Grayscale Image"
+                            handleClick={handleImageConversion}
                         />
-                    </>
-                )}
+                    )}
+
+                    {convertedURL && (
+                        <>
+                            <h3>Grayscale Image:</h3>
+                            <ImageDisplay
+                                src={convertedURL}
+                                alt="Grayscale Image"
+                            />
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

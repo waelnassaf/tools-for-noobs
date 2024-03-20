@@ -1,26 +1,26 @@
 import React from "react"
 import Link from "next/link"
 
-interface BreadcrumbProps {
+interface BreadcrumbsProps {
     pages: string[]
 }
 
-const breadcrumbLinks: { [key: string]: string } = {
+const breadcrumbsLinks: { [key: string]: string } = {
     Home: "/",
     "Text Tools": "/tools/text",
     "Image Tools": "/tools/image",
     "Online Tools": "/tools/online",
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ pages }) => (
-    <div className="text-sm breadcrumbs mb-5">
+const Breadcrumbs = ({ pages }: BreadcrumbsProps) => (
+    <div className="text-sm breadcrumbs mb-5 mt-12 padding-x padding-b max-width">
         <ul>
             {pages.map((page, index) => (
                 <li key={index}>
                     {index === pages.length - 1 ? (
                         <span>{page}</span>
                     ) : (
-                        <Link href={breadcrumbLinks[page] || "/"}>{page}</Link>
+                        <Link href={breadcrumbsLinks[page] || "/"}>{page}</Link>
                     )}
                 </li>
             ))}
@@ -28,4 +28,4 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ pages }) => (
     </div>
 )
 
-export default Breadcrumb
+export default Breadcrumbs

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { ResultAlert, SubmitButton } from "@/components"
+import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
 export default function Home() {
     const [textResult, setTextResult] = useState<string>("")
@@ -38,49 +38,54 @@ export default function Home() {
             alertDiv.current?.scrollIntoView({ behavior: "smooth" })
         }, 0)
     }
+    const pages = ["Home", "Text Tools", "Duplicate Lines Remover"]
 
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <h1>Duplicate Lines Remove</h1>
-            <p>
-                Paste the text in the following input to get the resulting text
-                with duplicate lines removed:
-            </p>
-            <textarea
-                className="textarea textarea-lg block textarea-bordered
-                    textarea-ghost w-full md:w-3/4 h-80"
-                placeholder="Paste text here"
-                ref={textarea}
-            ></textarea>
-
-            <SubmitButton
-                text={"Remove Duplicate Lines"}
-                handleClick={removeDupLines}
-            />
-
-            <ResultAlert
-                showAlert={showAlert}
-                isEmpty={isEmpty}
-                message={`${textResult}`}
-                hideAlert={() => setShowAlert(false)}
-                alertDiv={alertDiv}
-            />
-
-            <div className="flex flex-col w-3/4 mx-auto my-4">
-                <div className="divider"></div>
-            </div>
-
-            <div className="tool-content">
-                <h2>About Duplicate Lines Remover</h2>
+        <>
+            <Breadcrumbs pages={pages} />
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>Duplicate Lines Remover</h1>
                 <p>
-                    This tool <b>Duplicate Lines Remover</b> is a handy utility
-                    for programmers, writers or just data entry people looking
-                    to remove duplicate lines from a certain text. Whether
-                    you&apos;re dealing with duplicated content, lists, or data
-                    entries, this tool helps streamline your text by removing
-                    redundant lines, leaving you with clean and unique content.
+                    Paste the text in the following input to get the resulting
+                    text with duplicate lines removed:
                 </p>
+                <textarea
+                    className="textarea textarea-lg block textarea-bordered
+                    textarea-ghost w-full md:w-3/4 h-80"
+                    placeholder="Paste text here"
+                    ref={textarea}
+                ></textarea>
+
+                <SubmitButton
+                    text={"Remove Duplicate Lines"}
+                    handleClick={removeDupLines}
+                />
+
+                <ResultAlert
+                    showAlert={showAlert}
+                    isEmpty={isEmpty}
+                    message={`${textResult}`}
+                    hideAlert={() => setShowAlert(false)}
+                    alertDiv={alertDiv}
+                />
+
+                <div className="flex flex-col w-3/4 mx-auto my-4">
+                    <div className="divider"></div>
+                </div>
+
+                <div className="tool-content">
+                    <h2>About Duplicate Lines Remover</h2>
+                    <p>
+                        This tool <b>Duplicate Lines Remover</b> is a handy
+                        utility for programmers, writers or just data entry
+                        people looking to remove duplicate lines from a certain
+                        text. Whether you&apos;re dealing with duplicated
+                        content, lists, or data entries, this tool helps
+                        streamline your text by removing redundant lines,
+                        leaving you with clean and unique content.
+                    </p>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

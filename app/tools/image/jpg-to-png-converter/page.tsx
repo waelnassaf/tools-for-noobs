@@ -3,13 +3,14 @@
 import { useState } from "react"
 // @ts-ignore
 import Jimp from "jimp/es"
-import { SubmitButton } from "@/components" // You may need to create these components
-import { FileInput, ImageDisplay } from "@/app/tools/image/components"
+import { Breadcrumbs, SubmitButton } from "@/components"
+import { FileInput, ImageDisplay } from "../components"
 
 const Page = () => {
     const [convertedURL, setConvertedURL] = useState(null)
     const [preview, setPreview] = useState<string>("")
     const [showConvertButton, setShowConvertButton] = useState(false)
+    const pages = ["Home", "Image Tools", "JPG to PNG Converter"]
 
     const handleDrop = (files: FileList) => {
         // Handle dropped files
@@ -53,31 +54,38 @@ const Page = () => {
     }
 
     return (
-        <div className="mt-12 padding-x padding-y max-width prose">
-            <h1>JPG to PNG Converter</h1>
-            <p>Choose or Drop JPG file to change its type to PNG:</p>
+        <>
+            <Breadcrumbs pages={pages} />
 
-            <div className="max-w-xl mx-auto">
-                <FileInput onDrop={handleDrop} accept=".jpg" />
-                {preview && (
-                    <ImageDisplay src={preview} alt="Converted PNG Image" />
-                )}
+            <div className="mt-12 padding-x padding-y max-width prose">
+                <h1>JPG to PNG Converter</h1>
+                <p>Choose or Drop JPG file to change its type to PNG:</p>
 
-                {showConvertButton && (
-                    <SubmitButton
-                        text="Convert to PNG"
-                        handleClick={handleImageConversion}
-                    />
-                )}
+                <div className="max-w-xl mx-auto">
+                    <FileInput onDrop={handleDrop} accept=".jpg" />
+                    {preview && (
+                        <ImageDisplay src={preview} alt="Converted PNG Image" />
+                    )}
 
-                {convertedURL && (
-                    <>
-                        <h3>PNG Image:</h3>
-                        <ImageDisplay src={convertedURL} alt="Converted PNG" />
-                    </>
-                )}
+                    {showConvertButton && (
+                        <SubmitButton
+                            text="Convert to PNG"
+                            handleClick={handleImageConversion}
+                        />
+                    )}
+
+                    {convertedURL && (
+                        <>
+                            <h3>PNG Image:</h3>
+                            <ImageDisplay
+                                src={convertedURL}
+                                alt="Converted PNG"
+                            />
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
