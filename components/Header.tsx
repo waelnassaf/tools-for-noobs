@@ -19,19 +19,19 @@ const Header = () => {
                     />
                 </Link>
 
-                <Link
-                    href="https://google.com"
-                    className="hidden lg:block col-span-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        src={AdBanner}
-                        alt="Header Ad"
-                        height={90}
-                        width={730}
-                    />
-                </Link>
+                {/*<Link*/}
+                {/*    href="https://google.com"*/}
+                {/*    className="hidden lg:block col-span-2"*/}
+                {/*    target="_blank"*/}
+                {/*    rel="noopener noreferrer"*/}
+                {/*>*/}
+                {/*    <Image*/}
+                {/*        src={AdBanner}*/}
+                {/*        alt="Header Ad"*/}
+                {/*        height={90}*/}
+                {/*        width={730}*/}
+                {/*    />*/}
+                {/*</Link>*/}
             </div>
         </header>
     )
