@@ -24,7 +24,7 @@ export default function Home() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "X-RapidAPI-Key": `${process.env.RAPID_API_KEY}`,
+                "X-RapidAPI-Key": `${process.env["NEXT_PUBLIC_RAPID_API_KEY"]}`,
                 "X-RapidAPI-Host": "text-keyword-extractor.p.rapidapi.com",
             },
             body: JSON.stringify({
