@@ -14,7 +14,7 @@ const breadcrumbsLinks: { [key: string]: string } = {
 
 const Breadcrumbs = ({ pages }: BreadcrumbsProps) => (
     <div className="text-sm breadcrumbs mb-5 mt-12 padding-x padding-b max-width">
-        <ul>
+        <ul className="flex-wrap">
             {pages.map((page, index) => (
                 <li key={index}>
                     {index === pages.length - 1 ? (
