@@ -65,7 +65,8 @@ export default function Home() {
                         ref={textarea}
                     ></textarea>
                     <input
-                        className="input input-bordered input-lg w-full md:w-1/4 mt-3"
+                        className="input input-bordered input-lg w-full
+                        md:w-1/4 mt-3 lg:m-0"
                         placeholder="Enter word"
                         ref={targetWordInput}
                     />
