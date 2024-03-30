@@ -57,7 +57,7 @@ export default function Home() {
                     frequency of:
                 </p>
 
-                <div className="flex lg:gap-4 mb-4">
+                <div className="lg:flex lg:gap-4 mb-4">
                     <textarea
                         className="textarea textarea-lg block textarea-bordered
                         textarea-ghost w-full md:w-3/4 h-80"
@@ -65,7 +65,7 @@ export default function Home() {
                         ref={textarea}
                     ></textarea>
                     <input
-                        className="input input-bordered input-lg w-full md:w-1/4"
+                        className="input input-bordered input-lg w-full md:w-1/4 mt-3"
                         placeholder="Enter word"
                         ref={targetWordInput}
                     />
