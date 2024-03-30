@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useRef } from "react"
 import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
@@ -7,29 +8,37 @@ interface WordCounts {
 }
 
 export default function Home() {
-    const [wordCounts, setWordCounts] = useState({})
+    const [wordCounts, setWordCounts] = useState<WordCounts>({})
+    const [targetWord, setTargetWord] = useState<string>("") // State to store the target word
     const [showAlert, setShowAlert] = useState(false)
     const [isEmpty, setIsEmpty] = useState(true)
 
     const textarea = useRef<HTMLTextAreaElement>(null)
+    const targetWordInput = useRef<HTMLInputElement>(null) // Ref for the target word input
     const alertDiv = useRef<HTMLDivElement>(null)
 
     const countWords = () => {
         const text = textarea.current?.value
-        if (!text) {
+        const inputWord = targetWordInput.current?.value.trim().toLowerCase()
+
+        if (!text || !inputWord) {
             setIsEmpty(true)
             setShowAlert(false)
             return
         }
 
-        const words = text.split(/\s+/).filter(Boolean)
-        const counts = words.reduce<WordCounts>((acc, word) => {
-            acc[word] = (acc[word] || 0) + 1
+        const words = text.toLowerCase().split(/\s+/).filter(Boolean) // Ensure case-insensitive matching
+        const wordCount = words.reduce<WordCounts>((acc, word) => {
+            if (word === inputWord) {
+                // Count only the target word
+                acc[word] = (acc[word] || 0) + 1
+            }
             return acc
         }, {})
 
-        setIsEmpty(false)
-        setWordCounts(counts)
+        setIsEmpty(Object.keys(wordCount).length === 0)
+        setWordCounts(wordCount)
+        setTargetWord(inputWord) // Update the state with the target word
         setShowAlert(true)
 
         setTimeout(() => {
@@ -45,15 +54,23 @@ export default function Home() {
             <div className="mt-12 padding-x padding-y max-width prose">
                 <h1>Word Frequency Counter</h1>
                 <p>
-                    Paste the text in the following input to get the word
-                    frequencies:
+                    Paste the text and enter the word you want to count the
+                    frequency of:
                 </p>
-                <textarea
-                    className="textarea textarea-lg block textarea-bordered
-                    textarea-ghost w-full md:w-3/4 h-80"
-                    placeholder="Paste text here"
-                    ref={textarea}
-                ></textarea>
+
+                <div className="flex gap-4 mb-4">
+                    <input
+                        className="input input-bordered input-lg w-full md:w-1/4"
+                        placeholder="Enter word"
+                        ref={targetWordInput}
+                    />
+                    <textarea
+                        className="textarea textarea-lg block textarea-bordered
+                        textarea-ghost w-full md:w-3/4 h-80"
+                        placeholder="Paste text here"
+                        ref={textarea}
+                    ></textarea>
+                </div>
 
                 <SubmitButton
                     text={"Count Word Frequency"}
@@ -63,7 +80,7 @@ export default function Home() {
                 <ResultAlert
                     showAlert={showAlert}
                     isEmpty={isEmpty}
-                    message={`Word Frequencies: ${JSON.stringify(wordCounts)}`}
+                    message={`Frequency of "${targetWord}": ${wordCounts[targetWord] || 0}`}
                     hideAlert={() => setShowAlert(false)}
                     alertDiv={alertDiv}
                 />
@@ -77,7 +94,7 @@ export default function Home() {
                     <p>
                         This tool <b>Word Frequency Counter</b> is used by
                         people who want a quick way to determine the frequency
-                        of words in a specific text.
+                        of a specific word in a text.
                     </p>
                 </div>
             </div>
