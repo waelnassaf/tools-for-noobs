@@ -30,7 +30,6 @@ export default function Home() {
         const words = text.toLowerCase().split(/\s+/).filter(Boolean) // Ensure case-insensitive matching
         const wordCount = words.reduce<WordCounts>((acc, word) => {
             if (word === inputWord) {
-                // Count only the target word
                 acc[word] = (acc[word] || 0) + 1
             }
             return acc
@@ -58,18 +57,18 @@ export default function Home() {
                     frequency of:
                 </p>
 
-                <div className="flex gap-4 mb-4">
-                    <input
-                        className="input input-bordered input-lg w-full md:w-1/4"
-                        placeholder="Enter word"
-                        ref={targetWordInput}
-                    />
+                <div className="flex lg:gap-4 mb-4">
                     <textarea
                         className="textarea textarea-lg block textarea-bordered
                         textarea-ghost w-full md:w-3/4 h-80"
                         placeholder="Paste text here"
                         ref={textarea}
                     ></textarea>
+                    <input
+                        className="input input-bordered input-lg w-full md:w-1/4"
+                        placeholder="Enter word"
+                        ref={targetWordInput}
+                    />
                 </div>
 
                 <SubmitButton
