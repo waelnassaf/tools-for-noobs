@@ -14,19 +14,19 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        // <ThemeContextProvider>
-        <html lang="en">
-            <body className="font-inter">
-                <main className="overflow-hidden">
-                    <Header />
-                    <Divider />
-                    <Navbar />
-                    <Divider />
-                    {children}
-                    <Footer />
-                </main>
-            </body>
-        </html>
-        // </ThemeContextProvider>
+        <ThemeContextProvider>
+            <html lang="en">
+                <body className="font-inter dark:bg-white">
+                    <main className="overflow-hidden">
+                        <Header />
+                        <Divider />
+                        <Navbar />
+                        <Divider />
+                        {children}
+                        <Footer />
+                    </main>
+                </body>
+            </html>
+        </ThemeContextProvider>
     )
 }
