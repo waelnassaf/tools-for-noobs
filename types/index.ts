@@ -64,4 +64,5 @@ export interface SubmitButtonProps {
     handleClick: MouseEventHandler<HTMLButtonElement> //Correct type for handler.
     text: string
     type?: "button" | "submit" | "reset"
+    className?: string
 }
