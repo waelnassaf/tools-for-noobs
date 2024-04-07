@@ -10,6 +10,7 @@ const Page = () => {
     const [convertedURL, setConvertedURL] = useState(null)
     const [preview, setPreview] = useState<string>("")
     const [showConvertButton, setShowConvertButton] = useState(false)
+    const [showDownloadButton, setShowDownloadButton] = useState(false) // New state for download button
 
     const pages = ["Home", "Image Tools", "PNG to JPG Converter"]
 
@@ -51,9 +52,24 @@ const Page = () => {
             const convertedImageSrc = await image.getBase64Async(Jimp.MIME_JPEG)
             setConvertedURL(convertedImageSrc)
             setShowConvertButton(false)
+            setShowDownloadButton(true) // Show download button after conversion
         } catch (error) {
             console.error("Image manipulation error:", error)
             // Provide user feedback for conversion errors
+        }
+    }
+
+    const handleDownload = () => {
+        if (convertedURL) {
+            // Check if convertedURL is not null
+            const link = document.createElement("a")
+            link.href = convertedURL
+            link.download = "converted-image.jpg"
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+        } else {
+            console.error("No image to download.")
         }
     }
 
@@ -82,6 +98,12 @@ const Page = () => {
                                 src={convertedURL}
                                 alt="Converted JPG"
                             />
+                            {showDownloadButton && (
+                                <SubmitButton
+                                    text="Download JPG"
+                                    handleClick={handleDownload}
+                                />
+                            )}
                         </>
                     )}
                 </div>
