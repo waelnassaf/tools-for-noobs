@@ -37,15 +37,27 @@ export default function Home() {
                 "https://text-keyword-extractor.p.rapidapi.com/keyword-extractor",
                 options
             )
+
+            if (!response.ok) {
+                throw new Error("API response not ok: " + response.status)
+            }
+
             const result = await response.json()
+
+            if (!result.body || !result.body.keywords) {
+                throw new Error("Keyword data is missing in the response")
+            }
+
             const keywordNames = result.body.keywords.map(
                 (keyword: Keyword) => keyword.name
             )
             setKeywords(keywordNames)
             console.log(keywordNames)
         } catch (error) {
-            console.error(error)
+            console.error("Failed to fetch keywords:", error)
+            // Consider setting an error state and displaying this to the user
         }
+
         setIsEmpty(Boolean(!textarea.current?.value.trim().length))
         setShowAlert(true)
 
