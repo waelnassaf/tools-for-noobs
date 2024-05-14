@@ -9,8 +9,8 @@ export const navLinks = [
         path: "/tools/image",
     },
     {
-        label: "Online Tools",
-        path: "/tools/online",
+        label: "AI Tools",
+        path: "/tools/ai",
     },
 ]
 
@@ -49,8 +49,8 @@ export const categoriesOfTools = [
         catID: 2,
     },
     {
-        title: "Online",
-        value: "online",
+        title: "AI",
+        value: "ai",
         catID: 3,
     },
 ]

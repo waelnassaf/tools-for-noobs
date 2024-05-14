@@ -5,21 +5,21 @@ import { sitename } from "@/constants"
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
-        title: `Online Tools - ${sitename}`,
-        description: "Use our large collection of online tools.",
+        title: `AI Tools - ${sitename}`,
+        description: "Use our large collection of AI tools.",
     }
 }
 
 export default async function Page({ searchParams }: SearchParamsProps) {
-    const pages = ["Home", "Online Tools"]
+    const pages = ["Home", "AI Tools"]
 
     return (
         <>
             <Breadcrumbs pages={pages} />
             <div className="mt-12 padding-x padding-y max-width">
                 <div className="home__text-container">
-                    <h1 className="text-4xl font-extrabold">Online Tools</h1>
-                    <p>Use our large collection of online tools.</p>
+                    <h1 className="text-4xl font-extrabold">AI Tools</h1>
+                    <p>Use our large collection of AI tools.</p>
                 </div>
 
                 <ToolsByCat catId={3} limit={searchParams.limit} />

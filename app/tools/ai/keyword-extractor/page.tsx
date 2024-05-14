@@ -42,6 +42,7 @@ export default function Home() {
                 (keyword: Keyword) => keyword.name
             )
             setKeywords(keywordNames)
+            console.log(keywordNames)
         } catch (error) {
             console.error(error)
         }
@@ -56,7 +57,7 @@ export default function Home() {
         }, 0)
     }
 
-    const pages = ["Home", "Online Tools", "Keyword Extractor"]
+    const pages = ["Home", "AI Tools", "Keyword Extractor"]
 
     return (
         <>
