@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: "https://toolsfornoobs.com/tools/image",
         },
         {
-            url: "https://toolsfornoobs.com/tools/online",
+            url: "https://toolsfornoobs.com/tools/ai",
         },
         {
             url: "https://toolsfornoobs.com/about-us",
@@ -43,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             } else if (tool.categoryId === 2) {
                 category = "image"
             } else if (tool.categoryId === 3) {
-                category = "online"
+                category = "ai"
             }
 
             sitemap.push({
