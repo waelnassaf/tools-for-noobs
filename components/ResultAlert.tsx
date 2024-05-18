@@ -25,8 +25,8 @@ const ResultAlert = ({
                             exit={{ opacity: 0 }}
                             className={
                                 isEmpty
-                                    ? `alert alert-error mt-5 h-40 flex-center relative`
-                                    : `alert alert-success mt-5 text-white h-40 flex-center`
+                                    ? "alert alert-error mt-5 flex justify-center items-center relative p-4 w-auto min-h-[150px] max-w-[90%] mx-auto"
+                                    : "alert alert-success mt-5 text-white flex justify-center items-center relative p-4 w-auto min-h-[150px] max-w-[90%] mx-auto"
                             }
                         >
                             {isEmpty ? (
@@ -42,7 +42,7 @@ const ResultAlert = ({
                                     </button>
                                 </>
                             ) : (
-                                <span className="text-2xl whitespace-pre-line">
+                                <span className="text-2xl whitespace-break-spaces">
                                     {message}
                                 </span>
                             )}

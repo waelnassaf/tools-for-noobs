@@ -3,6 +3,7 @@ import { SearchParamsProps } from "@/types"
 import { getTools } from "@/server/actions"
 import { Metadata } from "next"
 import { sitename } from "@/constants"
+
 export async function generateMetadata(): Promise<Metadata> {
     return {
         title: `Text Tools - ${sitename}`,
