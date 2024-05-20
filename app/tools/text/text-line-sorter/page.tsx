@@ -147,12 +147,19 @@ const TextLineSorter = () => {
                     <h2>About Text Line Sorter</h2>
                     <div className="bg-gray-100 p-4 rounded-lg shadow-md text-gray-600">
                         <p className="mb-4">
-                            The <strong>Text Line Sorter</strong> tool offers
-                            multiple sorting options for your text lines.
+                            The <strong>Text Line Sorter</strong> is a free tool
+                            for sorting a text, however of its size, line by
+                            line depending on the sorting option
                         </p>
-                        <p>
-                            Choose your desired option from the radio buttons to
-                            sort your text.
+                        <p className="mb-4">
+                            There are four options for sorting text:
+                            alphabetically, numerically, by length, and by
+                            complexity (best for passwords).
+                        </p>
+                        <p className="mb-4">
+                            Each option can be applied in either ascending or
+                            descending order, providing flexibility and control
+                            over how your text is sorted.
                         </p>
                     </div>
                 </div>
