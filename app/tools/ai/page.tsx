@@ -1,14 +1,5 @@
 import { Breadcrumbs, ToolsByCat } from "@/components"
 import { SearchParamsProps } from "@/types"
-import { Metadata } from "next"
-import { sitename } from "@/constants"
-
-export async function generateMetadata(): Promise<Metadata> {
-    return {
-        title: `AI Tools - ${sitename}`,
-        description: "Use our large collection of AI tools.",
-    }
-}
 
 export default async function Page({ searchParams }: SearchParamsProps) {
     const pages = ["Home", "AI Tools"]
