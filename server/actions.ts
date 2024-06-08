@@ -29,7 +29,6 @@ export const getTools = async ({ sq, cat, limit = 9 }: GetToolsParams = {}) => {
                 contains: sq,
             }
         }
-
         if (cat && !isNaN(Number(cat)) && Number(cat) !== 0) {
             query.where.categoryId = Number(cat)
         }
@@ -37,6 +36,7 @@ export const getTools = async ({ sq, cat, limit = 9 }: GetToolsParams = {}) => {
         if (!isNaN(Number(limit))) {
             query.take = Number(limit)
         }
+        // throw new Error("Testing errors")
 
         // Fetching the tools from the database
         return await prisma.tool.findMany(query)
