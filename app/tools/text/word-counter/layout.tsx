@@ -1,4 +1,3 @@
-import { sitename } from "@/constants"
 const toolName = "Word Counter"
 
 import type { Metadata } from "next"
@@ -6,7 +5,7 @@ import { getDesc } from "@/utils"
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
-        title: `${toolName} - ${sitename}`,
+        title: toolName,
         description: await getDesc(toolName),
     }
 }

@@ -1,11 +1,10 @@
-import { sitename } from "@/constants"
 const toolName = "Empty Lines Remover"
 import { getDesc } from "@/utils"
 import type { Metadata } from "next"
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
-        title: `${toolName} - ${sitename}`,
+        title: toolName,
         description: await getDesc(toolName),
     }
 }

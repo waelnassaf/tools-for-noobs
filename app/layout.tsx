@@ -1,10 +1,12 @@
 import "./globals.css"
 import { Header, Navbar, Footer, Divider } from "@/components"
-import { sitename } from "@/constants"
 import ThemeContextProvider from "@/contexts/ThemeContext"
 
 export const metadata = {
-    title: `${sitename} - A pro toolset, made simple.`,
+    title: {
+        template: "%s - Tools for Noobs",
+        default: "Tools for Noobs - A pro toolset, made simple.",
+    },
     description: "A toolset designed for many easy-to-hard use cases.",
 }
 

@@ -1,9 +1,8 @@
 import { Metadata } from "next"
 import React from "react"
-import { sitename } from "@/constants"
 
 export const metadata: Metadata = {
-    title: `Image Tools - ${sitename}`,
+    title: `Image Tools`,
     description: "Use our large collection of image manipulation tools.",
 }
 

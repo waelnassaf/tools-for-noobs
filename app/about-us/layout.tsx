@@ -1,9 +1,8 @@
 import { Metadata } from "next"
 import React from "react"
-import { sitename } from "@/constants"
 
 export const metadata: Metadata = {
-    title: `${sitename} - About Us`,
+    title: "About Us",
     description: "Get to know our mission.",
 }
 
