@@ -9,7 +9,7 @@ const breadcrumbsLinks: { [key: string]: string } = {
     Home: "/",
     "Text Tools": "/tools/text",
     "Image Tools": "/tools/image",
-    "Online Tools": "/tools/online",
+    "AI Tools": "/tools/ai",
 }
 
 const Breadcrumbs = ({ pages }: BreadcrumbsProps) => (
