@@ -20,8 +20,6 @@ const SearchTool = ({ selected, setSelected }: SearchToolProps) => {
                       .includes(query.toLowerCase().replace(/\s+/g, ""))
               )
 
-    // @ts-ignore
-    // @ts-ignore
     return (
         <div className="search-manufacturer">
             <Combobox value={selected} onChange={setSelected}>

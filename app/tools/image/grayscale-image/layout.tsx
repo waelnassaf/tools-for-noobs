@@ -9,6 +9,9 @@ export async function generateMetadata(): Promise<Metadata> {
     }
 }
 
+//Weeks of the day
+const weeks = []
+
 export default async function RootLayout({
     children,
 }: {
