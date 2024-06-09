@@ -67,5 +67,3 @@ export const tools = [
     "Regex Tester",
     "Syntax Highlighter",
 ]
-
-export const sitename = "Tools for Noobs"
