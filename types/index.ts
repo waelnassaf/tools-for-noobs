@@ -61,8 +61,15 @@ export interface ResultAlertProps {
 }
 
 export interface SubmitButtonProps {
-    handleClick: MouseEventHandler<HTMLButtonElement> //Correct type for handler.
+    handleClick?: MouseEventHandler<HTMLButtonElement> //Correct type for handler.
     text: string
     type?: "button" | "submit" | "reset"
     className?: string
+}
+
+export interface User {
+    id: string
+    name: string
+    email: string
+    password: string
 }

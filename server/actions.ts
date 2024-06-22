@@ -1,6 +1,8 @@
 "use server"
 
 import prisma from "@/prisma/client"
+import { signIn } from "@/auth"
+import { AuthError } from "next-auth"
 
 interface ToolQuery {
     where: {
@@ -42,6 +44,25 @@ export const getTools = async ({ sq, cat, limit = 9 }: GetToolsParams = {}) => {
         return await prisma.tool.findMany(query)
     } catch (error) {
         console.error("Error retrieving tools:", error)
+        throw error
+    }
+}
+
+export async function authenticate(
+    prevState: string | undefined,
+    formData: FormData
+) {
+    try {
+        await signIn("credentials", formData)
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case "CredentialsSignin":
+                    return "Invalid credentials."
+                default:
+                    return "Something went wrong."
+            }
+        }
         throw error
     }
 }
