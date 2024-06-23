@@ -1,9 +1,10 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { TiTimes } from "react-icons/ti"
 import { ResultAlertProps } from "@/types"
 import { motion, AnimatePresence } from "framer-motion"
+import { toast } from "react-toastify"
 
 const ResultAlert = ({
     showAlert,
@@ -12,6 +13,18 @@ const ResultAlert = ({
     hideAlert,
     alertDiv,
 }: ResultAlertProps) => {
+    const handleCopy = () => {
+        navigator.clipboard
+            .writeText(message)
+            .then(() => {
+                toast.success("Result copied to clipboard successfully!")
+            })
+            .catch((err) => {
+                console.error("Error copying text: ", err)
+                toast.error("Failed to copy message.")
+            })
+    }
+
     return (
         <>
             {/*Animate Presence is at top to prevent unmounting the whole div*/}
@@ -42,9 +55,18 @@ const ResultAlert = ({
                                     </button>
                                 </>
                             ) : (
-                                <span className="text-2xl whitespace-break-spaces">
-                                    {message}
-                                </span>
+                                <>
+                                    <span className="text-2xl whitespace-break-spaces">
+                                        {message}
+                                    </span>
+                                    <button
+                                        className="btn btn-sm bg-blue-500 text-white border-none
+                                         absolute right-2 top-2"
+                                        onClick={handleCopy}
+                                    >
+                                        Copy Result
+                                    </button>
+                                </>
                             )}
                         </motion.div>
                     </div>

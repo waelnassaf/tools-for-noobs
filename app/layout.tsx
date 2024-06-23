@@ -1,6 +1,8 @@
 import "./globals.css"
 import { Header, Navbar, Footer, Divider } from "@/components"
 import ThemeContextProvider from "@/contexts/ThemeContext"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export const metadata = {
     title: {
@@ -25,6 +27,7 @@ export default function RootLayout({
                         <Navbar />
                         <Divider />
                         {children}
+                        <ToastContainer />
                         <Footer />
                     </main>
                 </body>
