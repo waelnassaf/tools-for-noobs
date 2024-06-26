@@ -54,7 +54,7 @@ export interface ToolProps {
 
 export interface ResultAlertProps {
     showAlert: boolean
-    isEmpty: boolean
+    isEmpty?: boolean
     message: string
     hideAlert: () => void
     alertDiv: React.RefObject<HTMLDivElement>
