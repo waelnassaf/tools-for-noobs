@@ -134,26 +134,24 @@ export default function TextTrimmer() {
                     <div className="divider"></div>
                 </div>
 
-                <div>
+                <div className="tool-content">
                     <h2>About Text Trimmer</h2>
-                    <div className="bg-gray-100 p-4 rounded-lg shadow-md text-gray-600">
-                        <p className="mb-4">
-                            This tool <strong>Text Trimmer</strong> is a simple
-                            tool built for people wanting to trim their long
-                            text automatically.
-                        </p>
-                        <p className="mb-4">It has three options:</p>
-                        <ul className="list-disc list-inside mb-4">
-                            <li>Left</li>
-                            <li>Right</li>
-                            <li>Line by line</li>
-                        </ul>
-                        <p>
-                            You can use either right or left trimming, both, or
-                            check all options to trim the whole text line by
-                            line for a whole left and right trim.
-                        </p>
-                    </div>
+                    <p className="mb-4">
+                        This tool <strong>Text Trimmer</strong> is a simple tool
+                        built for people wanting to trim their long text
+                        automatically.
+                    </p>
+                    <p className="mb-4">It has three options:</p>
+                    <ul className="list-disc list-inside mb-4">
+                        <li>Left</li>
+                        <li>Right</li>
+                        <li>Line by line</li>
+                    </ul>
+                    <p>
+                        You can use either right or left trimming, both, or
+                        check all options to trim the whole text line by line
+                        for a whole left and right trim.
+                    </p>
                 </div>
             </div>
         </>

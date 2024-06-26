@@ -73,7 +73,7 @@ export default function Home() {
                     <div className="divider"></div>
                 </div>
 
-                <div>
+                <div className="tool-content">
                     <h2>About Duplicate Lines Remover</h2>
                     <p>
                         This tool <b>Duplicate Lines Remover</b> is a handy

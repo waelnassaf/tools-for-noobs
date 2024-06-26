@@ -7,18 +7,17 @@ import { Breadcrumbs, SubmitButton } from "@/components"
 import { FileInput, ImageDisplay } from "../components"
 
 const Page = () => {
-    const [convertedURL, setConvertedURL] = useState(null)
+    const [convertedURL, setConvertedURL] = useState<string | null>(null)
     const [preview, setPreview] = useState<string>("")
-    const [showConvertButton, setShowConvertButton] = useState(false)
+    const [showConvertButton, setShowConvertButton] = useState<boolean>(false)
+    const [showDownloadButton, setShowDownloadButton] = useState<boolean>(false)
 
     const pages = ["Home", "Image Tools", "Grayscale Image"]
 
     const handleDrop = (files: FileList) => {
-        // Handle dropped files
         if (files.length > 0) {
             const file = files[0]
 
-            // Check if the file is an image
             if (!file.type.startsWith("image/")) {
                 alert("Only image files are accepted.")
                 return
@@ -43,16 +42,28 @@ const Page = () => {
 
         try {
             const image = await Jimp.read(preview)
-
-            // Adjust quality to a reasonable value (e.g., 80)
             image.grayscale()
 
             const convertedImageSrc = await image.getBase64Async(Jimp.MIME_JPEG)
             setConvertedURL(convertedImageSrc)
             setShowConvertButton(false)
+            setShowDownloadButton(true) // Show download button after conversion
         } catch (error) {
             console.error("Image manipulation error:", error)
             // Provide user feedback for conversion errors
+        }
+    }
+
+    const handleDownload = () => {
+        if (convertedURL) {
+            const link = document.createElement("a")
+            link.href = convertedURL
+            link.download = "grayscale-image.jpg" // Set appropriate file name and extension
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+        } else {
+            console.error("No image to download.")
         }
     }
 
@@ -75,14 +86,45 @@ const Page = () => {
                     )}
 
                     {convertedURL && (
-                        <>
+                        <div className="mt-4">
                             <h3>Grayscale Image:</h3>
                             <ImageDisplay
                                 src={convertedURL}
                                 alt="Grayscale Image"
                             />
-                        </>
+                            {showDownloadButton && (
+                                <SubmitButton
+                                    text="Download Grayscale"
+                                    handleClick={handleDownload}
+                                />
+                            )}
+                        </div>
                     )}
+                </div>
+
+                <div className="tool-content mt-8">
+                    <h2>About Grayscale Image Tool</h2>
+                    <p>
+                        The <b>Grayscale Image Tool</b> allows you to convert
+                        color images to grayscale. This is useful for various
+                        applications, including enhancing contrast and reducing
+                        file sizes while maintaining image quality.
+                    </p>
+                    <h2>Who Would Use Grayscale Image Tool?</h2>
+                    <ul>
+                        <li>
+                            <b>Photographers:</b> Adjusting images for artistic
+                            or practical purposes.
+                        </li>
+                        <li>
+                            <b>Graphic Designers:</b> Preparing images for print
+                            or digital media with specific requirements.
+                        </li>
+                        <li>
+                            <b>Developers:</b> Integrating grayscale image
+                            processing into web applications.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </>

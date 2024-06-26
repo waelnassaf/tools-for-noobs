@@ -27,7 +27,7 @@ export const footerLinks = [
         title: "Contact",
         links: [
             { title: "Contact Us", url: "/contact" },
-            { title: "Twitter", url: "/" },
+            // { title: "Twitter", url: "/" },
         ],
     },
 ]

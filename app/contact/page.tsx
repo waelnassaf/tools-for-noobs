@@ -1,10 +1,14 @@
 "use client"
 
 import { Breadcrumbs, SubmitButton } from "@/components"
+import { toast } from "react-toastify"
+import { useRouter } from "next/navigation"
 
 const Page = () => {
+    const router = useRouter()
     const handleClick = () => {
-        alert("Helllooooo")
+        toast.success("Your message is received! We'll get to you soon")
+        router.push("/")
     }
     const pages = ["Home", "Contact Us"]
 

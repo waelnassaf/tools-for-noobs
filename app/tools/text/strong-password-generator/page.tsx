@@ -1,6 +1,6 @@
 "use client"
 import { useState, useRef, ChangeEvent } from "react"
-import { Breadcrumbs, SubmitButton, ResultAlert } from "@/components"
+import { Breadcrumbs, SubmitButton, ResultAlert, Divider } from "@/components"
 
 const StrongPasswordGenerator = () => {
     const [password, setPassword] = useState("")
@@ -55,7 +55,6 @@ const StrongPasswordGenerator = () => {
                 <h1 className="text-3xl font-bold mb-6">
                     Strong Password Generator
                 </h1>
-
                 <div className="space-y-4 mb-6">
                     <div className="form-control">
                         <label className="label cursor-pointer">
@@ -98,8 +97,8 @@ const StrongPasswordGenerator = () => {
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        <label className="text-lg font-medium">
-                            Password Length: {passwordLength}
+                        <label className="font-medium">
+                            Length: {passwordLength}
                         </label>
                         <input
                             type="range"
@@ -111,18 +110,35 @@ const StrongPasswordGenerator = () => {
                         />
                     </div>
                 </div>
-
                 <SubmitButton
                     text="Generate Password"
                     handleClick={generatePassword}
                 />
-
                 <ResultAlert
                     showAlert={showAlert}
                     message={`${password}`}
                     hideAlert={() => setShowAlert(false)}
                     alertDiv={alertDiv}
                 />
+
+                <div className="flex flex-col w-3/4 mx-auto my-4">
+                    <div className="divider"></div>
+                </div>
+
+                <div className="tool-content">
+                    <h2>About Strong Password Generator</h2>
+                    <p>
+                        The <b>Strong Password Generator</b> tool allows you to
+                        generate secure passwords with varying levels of
+                        complexity (medium, strong, very strong) and lengths (6
+                        to 50 characters).
+                    </p>
+                    <p>
+                        Use this tool to create passwords that meet your
+                        security needs for various applications, ensuring
+                        protection against unauthorized access.
+                    </p>
+                </div>
             </div>
         </>
     )

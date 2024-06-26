@@ -192,3 +192,7 @@
     @apply cursor-default select-none py-2 pl-10 pr-4;
 }
 /* END: search manufacturer styles */
+
+.tool-content {
+    @apply bg-gray-100  py-3 px-5 rounded-lg shadow-md
+}

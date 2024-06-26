@@ -8,16 +8,25 @@ const Footer = () => (
     <footer className="flex flex-col text-black-100  mt-5 border-t border-gray-100">
         <div className="flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10">
             <div className="flex flex-col justify-start items-start gap-6">
-                <Image
-                    src="/bottom-logo.svg"
-                    alt="logo"
-                    width={300}
-                    height={50}
-                    className="object-contain"
-                />
+                <Link href={"/"}>
+                    <Image
+                        src="/bottom-logo.svg"
+                        alt="logo"
+                        width={300}
+                        height={50}
+                        className="object-contain"
+                    />
+                </Link>
                 <p className="text-base text-gray-700">
-                    ToolsForNoobs 2023 <br />
-                    All Rights Reserved &copy;
+                    Made with ❤️ by
+                    <Link
+                        href={"https://x.com/waelnassaf"}
+                        className="text-blue-400"
+                        target="_blank"
+                    >
+                        {" "}
+                        Wael
+                    </Link>
                 </p>
             </div>
 
@@ -42,7 +51,7 @@ const Footer = () => (
         </div>
 
         <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
-            <p>@2023 ToolsForNoobs. All rights reserved</p>
+            <p>@2024 ToolsForNoobs. All rights reserved</p>
 
             <div className="footer__copyrights-link">
                 <Link href="/privacy-policy" className="text-gray-500">
@@ -50,6 +59,9 @@ const Footer = () => (
                 </Link>
                 <Link href="/terms-n-conditions" className="text-gray-500">
                     Terms & Condition
+                </Link>
+                <Link href="/disclaimer" className="text-gray-500">
+                    Disclaimer
                 </Link>
             </div>
         </div>

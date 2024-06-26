@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { categoriesOfTools } from "@/constants"
 import { ToolProps } from "@/types"
 import { AiOutlineFileImage, AiOutlineFileText } from "react-icons/ai"
-import { BsGlobeAmericas } from "react-icons/bs"
+import { RiRobot2Line } from "react-icons/ri"
 
 interface ToolCardProps {
     tool: ToolProps
@@ -53,7 +53,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
                                 />
                             )}
                             {categoryId === 3 && (
-                                <BsGlobeAmericas
+                                <RiRobot2Line
                                     className="text-8xl
                                                 mx-auto"
                                 />
