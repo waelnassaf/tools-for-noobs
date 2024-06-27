@@ -20,13 +20,8 @@ export default function RootLayout({
     return (
         <ThemeContextProvider>
             <html lang="en">
-                <head>
-                    <script
-                        async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5272830813458540"
-                        crossOrigin="anonymous"
-                    ></script>
-                </head>
+                <GoogleAdsense pId="5272830813458540" />
+
                 <body className="font-inter dark:bg-white">
                     <main className="overflow-hidden">
                         <Header />
@@ -38,7 +33,6 @@ export default function RootLayout({
                         <Footer />
                     </main>
                 </body>
-                <GoogleAdsense pId="5272830813458540" />
             </html>
         </ThemeContextProvider>
     )
