@@ -17,7 +17,7 @@ export default async function Home({ searchParams }: SearchParamsProps) {
         <div className="mt-12 padding-x padding-y max-width">
             <div className="home__text-container">
                 <h1 className="text-4xl font-extrabold">Search Tools</h1>
-                <p>View and search hundreds of useful tools.</p>
+                <p>View and search our large collection of useful tools.</p>
             </div>
 
             <div className="home__filters px-6">
