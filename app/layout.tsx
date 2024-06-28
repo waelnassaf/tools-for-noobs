@@ -21,7 +21,6 @@ export default function RootLayout({
         <ThemeContextProvider>
             <html lang="en">
                 <GoogleAdsense pId="5272830813458540" />
-
                 <body className="font-inter dark:bg-white">
                     <main className="overflow-hidden">
                         <Header />

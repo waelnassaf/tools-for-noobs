@@ -1,4 +1,4 @@
-const toolName: string = "PNG to JPG Converter"
+const toolName: string = "Image Rotator"
 import type { Metadata } from "next"
 import { getDesc } from "@/utils"
 
