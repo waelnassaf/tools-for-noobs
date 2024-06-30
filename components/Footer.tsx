@@ -51,7 +51,9 @@ const Footer = () => (
         </div>
 
         <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
-            <p>@2024 ToolsForNoobs. All rights reserved</p>
+            <p>
+                @{new Date().getFullYear()} ToolsForNoobs. All rights reserved
+            </p>
 
             <div className="footer__copyrights-link">
                 <Link href="/privacy-policy" className="text-gray-500">
