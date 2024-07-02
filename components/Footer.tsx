@@ -25,7 +25,7 @@ const Footer = () => (
                         target="_blank"
                     >
                         {" "}
-                        Wael
+                        Wael Assaf
                     </Link>
                 </p>
             </div>
