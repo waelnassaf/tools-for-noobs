@@ -1,58 +1,73 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, RefObject } from "react"
 import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
-const morseCodeMap = {
-    A: ".-",
-    B: "-...",
-    C: "-.-.",
-    D: "-..",
-    E: ".",
-    F: "..-.",
-    G: "--.",
-    H: "....",
-    I: "..",
-    J: ".---",
-    K: "-.-",
-    L: ".-..",
-    M: "--",
-    N: "-.",
-    O: "---",
-    P: ".--.",
-    Q: "--.-",
-    R: ".-.",
-    S: "...",
-    T: "-",
-    U: "..-",
-    V: "...-",
-    W: ".--",
-    X: "-..-",
-    Y: "-.--",
-    Z: "--..",
-    "0": "-----",
-    "1": ".----",
-    "2": "..---",
-    "3": "...--",
-    "4": "....-",
-    "5": ".....",
-    "6": "-....",
-    "7": "--...",
-    "8": "---..",
-    "9": "----.",
-    " ": "/",
-}
+// Provided dictionary
+const dictionary = {
+    "-----": "0",
+    ".----": "1",
+    "..---": "2",
+    "...--": "3",
+    "....-": "4",
+    ".....": "5",
+    "-....": "6",
+    "--...": "7",
+    "---..": "8",
+    "----.": "9",
+    ".-": "a",
+    "-...": "b",
+    "-.-.": "c",
+    "-..": "d",
+    ".": "e",
+    "..-.": "f",
+    "--.": "g",
+    "....": "h",
+    "..": "i",
+    ".---": "j",
+    "-.-": "k",
+    ".-..": "l",
+    "--": "m",
+    "-.": "n",
+    "---": "o",
+    ".--.": "p",
+    "--.-": "q",
+    ".-.": "r",
+    "...": "s",
+    "-": "t",
+    "..-": "u",
+    "...-": "v",
+    ".--": "w",
+    "-..-": "x",
+    "-.--": "y",
+    "--..": "z",
+    "-.-.--": "!",
+    ".-.-.-": ".",
+    "--..--": ",",
+} as const
 
-type MorseCodeMap = typeof morseCodeMap
-type MorseCodeChar = keyof MorseCodeMap
+type Dictionary = typeof dictionary
+type MorseCodeChar = keyof Dictionary
+type TextChar = Dictionary[MorseCodeChar]
+
+// Creating inverse dictionary for decoding
+const inverseDictionary: Record<TextChar, MorseCodeChar> = Object.entries(
+    dictionary
+).reduce(
+    (acc, [key, value]) => {
+        acc[value] = key as MorseCodeChar
+        return acc
+    },
+    {} as Record<TextChar, MorseCodeChar>
+)
 
 const textToMorse = (text: string): string => {
     return text
-        .toUpperCase()
+        .toLowerCase()
         .split("")
         .map((char) => {
-            if (char in morseCodeMap) {
-                return morseCodeMap[char as MorseCodeChar]
+            if (char in inverseDictionary) {
+                return inverseDictionary[char as TextChar]
             }
             return ""
         })
@@ -60,28 +75,19 @@ const textToMorse = (text: string): string => {
 }
 
 const morseToText = (morse: string): string => {
-    const inverseMorseCodeMap: Record<string, string> = Object.entries(
-        morseCodeMap
-    ).reduce(
-        (acc, [key, value]) => {
-            acc[value] = key
-            return acc
-        },
-        {} as Record<string, string>
-    )
-
     return morse
         .split(" ")
-        .map((code) => inverseMorseCodeMap[code] || "")
+        .map((code) => dictionary[code as MorseCodeChar] || "")
         .join("")
 }
 
 export default function Home() {
-    const [result, setResult] = useState("")
-    const [showAlert, setShowAlert] = useState(false)
-    const [isEmpty, setIsEmpty] = useState(true)
-    const textarea = useRef<HTMLTextAreaElement>(null)
-    const alertDiv = useRef<HTMLDivElement>(null)
+    const [result, setResult] = useState<string>("")
+    const [showAlert, setShowAlert] = useState<boolean>(false)
+    const [isEmpty, setIsEmpty] = useState<boolean>(true)
+    const textarea: RefObject<HTMLTextAreaElement> =
+        useRef<HTMLTextAreaElement>(null)
+    const alertDiv: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null)
 
     const handleEncode = () => {
         const text = textarea.current?.value || ""
@@ -134,7 +140,6 @@ export default function Home() {
                         handleClick={handleDecode}
                     />
                 </div>
-
                 <ResultAlert
                     showAlert={showAlert}
                     isEmpty={isEmpty}
