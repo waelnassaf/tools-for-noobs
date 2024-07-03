@@ -124,14 +124,16 @@ export default function Home() {
                     placeholder="Enter text or Morse code here"
                     ref={textarea}
                 ></textarea>
-                <SubmitButton
-                    text={"Encode to Morse"}
-                    handleClick={handleEncode}
-                />
-                <SubmitButton
-                    text={"Decode to Text"}
-                    handleClick={handleDecode}
-                />
+                <div className="flex gap-3 justify-start">
+                    <SubmitButton
+                        text={"Encode to Morse"}
+                        handleClick={handleEncode}
+                    />
+                    <SubmitButton
+                        text={"Decode to Text"}
+                        handleClick={handleDecode}
+                    />
+                </div>
 
                 <ResultAlert
                     showAlert={showAlert}
