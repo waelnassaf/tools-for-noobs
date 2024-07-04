@@ -3,7 +3,6 @@
 import { useState, useRef, RefObject } from "react"
 import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
 
-// Provided dictionary
 const dictionary = {
     "-----": "0",
     ".----": "1",
