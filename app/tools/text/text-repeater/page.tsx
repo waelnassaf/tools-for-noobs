@@ -44,11 +44,10 @@ export default function Home() {
                 ></textarea>
                 <input
                     type="number"
-                    className="input input-bordered w-full md:w-1/4 my-4"
+                    className="input input-bordered w-full md:w-1/4 my-4 md:mr-4"
                     placeholder="Enter number of repetitions"
                     ref={repeatCountInput}
                 />
-
                 <SubmitButton text={"Repeat Text"} handleClick={repeatText} />
 
                 <ResultAlert
