@@ -19,7 +19,7 @@ export default function GlobalError({
             <button
                 className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
                 onClick={
-                    //Reload Page
+                    //Reload Page (Refresh)
                     () => window.location.reload()
                 }
             >
