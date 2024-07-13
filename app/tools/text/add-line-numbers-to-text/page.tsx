@@ -76,10 +76,10 @@ export default function Home() {
                     <p>
                         This tool <b>Add Line Numbers to Text</b> is a practical
                         utility for anyone looking to number the lines of their
-                        text. Whether you're editing documents, writing code, or
-                        organizing data, this tool helps you achieve a more
-                        structured format by adding line numbers to each line of
-                        text.
+                        text. Whether you&apos;re editing documents, writing
+                        code, or organizing data, this tool helps you achieve a
+                        more structured format by adding line numbers to each
+                        line of text.
                     </p>
                 </div>
             </div>
