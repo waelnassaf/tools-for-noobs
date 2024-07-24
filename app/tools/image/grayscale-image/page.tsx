@@ -4,7 +4,7 @@ import { useState } from "react"
 // @ts-ignore
 import Jimp from "jimp/es"
 import { Breadcrumbs, SubmitButton } from "@/components"
-import { FileInput, ImageDisplay } from "../components"
+import { FileInput, ImageDisplay } from "../_components"
 
 const Page = () => {
     const [convertedURL, setConvertedURL] = useState<string | null>(null)

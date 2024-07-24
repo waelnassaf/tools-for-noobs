@@ -4,7 +4,7 @@ import { useState } from "react"
 // @ts-ignore
 import Jimp from "jimp/es"
 import { SubmitButton, Breadcrumbs } from "@/components"
-import { FileInput, ImageDisplay } from "../components"
+import { FileInput, ImageDisplay } from "../_components"
 
 const Page = () => {
     const [image, setImage] = useState<Jimp | null>(null)
