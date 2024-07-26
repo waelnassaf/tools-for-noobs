@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/prisma/client"
 import { slugify } from "@/utils"
 
-//A random comment
-
 interface ToolQuery {
     where: {
         name?: {
@@ -41,13 +39,13 @@ const getAllTools = async (
 }
 
 export async function POST(req: NextRequest, res: NextResponse) {
-    const { name, desc, categoryId } = await req.json()
+    const { name, description, categoryId } = await req.json()
 
     try {
         const newTool = await prisma.tool.create({
             data: {
                 name,
-                desc,
+                description,
                 slug: slugify(name),
                 categoryId,
             },

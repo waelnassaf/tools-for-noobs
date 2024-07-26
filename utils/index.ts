@@ -42,5 +42,5 @@ export async function getDesc(toolName: string) {
         },
     })
 
-    return tool ? tool.desc : null
+    return tool ? tool.description : null
 }

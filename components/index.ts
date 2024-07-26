@@ -13,7 +13,6 @@ import SubmitButton from "./SubmitButton"
 import Breadcrumbs from "./Breadcrumbs"
 import ToolsByCat from "./ToolsByCat"
 import Mode from "./Mode"
-import LoginForm from "./LoginForm"
 import GoogleAdsense from "./GoogleAdsense"
 
 export {
@@ -32,6 +31,5 @@ export {
     Breadcrumbs,
     ToolsByCat,
     Mode,
-    LoginForm,
     GoogleAdsense,
 }

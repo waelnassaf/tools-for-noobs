@@ -48,7 +48,7 @@ export interface SearchParamsProps {
 export interface ToolProps {
     name: string
     slug: string
-    desc: string
+    description: string
     categoryId: number
 }
 

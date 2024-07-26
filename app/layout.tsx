@@ -3,6 +3,9 @@ import { Header, Navbar, Footer, Divider, GoogleAdsense } from "@/components"
 import ThemeContextProvider from "@/contexts/ThemeContext"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { SessionProvider } from "next-auth/react"
+import { auth } from "@/auth"
+import React from "react"
 
 export const metadata = {
     title: {
@@ -12,27 +15,21 @@ export const metadata = {
     description: "A toolset designed for many easy-to-hard use cases.",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+    const session = await auth()
+
     return (
-        <ThemeContextProvider>
-            <html lang="en">
-                <GoogleAdsense pId="5272830813458540" />
-                <body className="font-inter dark:bg-white">
-                    <main className="overflow-hidden">
-                        <Header />
-                        <Divider />
-                        <Navbar />
-                        <Divider />
-                        {children}
-                        <ToastContainer />
-                        <Footer />
-                    </main>
-                </body>
-            </html>
-        </ThemeContextProvider>
+        <SessionProvider session={session}>
+            <ThemeContextProvider>
+                <html lang="en">
+                    <GoogleAdsense pId="5272830813458540" />
+                    <body className="font-inter dark:bg-white">{children}</body>
+                </html>
+            </ThemeContextProvider>
+        </SessionProvider>
     )
 }

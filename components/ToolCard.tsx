@@ -13,7 +13,7 @@ interface ToolCardProps {
 }
 
 const ToolCard = ({ tool }: ToolCardProps) => {
-    const { name, categoryId, desc, slug } = tool
+    const { name, categoryId, description, slug } = tool
 
     return (
         <AnimatePresence>
@@ -62,7 +62,7 @@ const ToolCard = ({ tool }: ToolCardProps) => {
 
                         <div className="relative flex w-full mt-2">
                             <div className="group-hover:invisible w-full">
-                                <p className="text-grey">{desc}</p>
+                                <p className="text-grey">{description}</p>
                             </div>
 
                             <div className="car-card__btn-container">
