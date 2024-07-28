@@ -2,15 +2,24 @@ import Link from "next/link"
 import NavLinks from "@/components/admin/nav-links"
 import { BiPowerOff } from "react-icons/bi"
 import { signOut } from "@/auth"
+import Logo from "@/public/top-logo.svg"
+import Image from "next/image"
 
 export default function SideNav() {
     return (
         <div className="flex h-full flex-col px-3 py-4 md:px-2">
             <Link
-                className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
+                className="mb-2 flex items-end justify-center rounded-md bg-gray-50 p-4 h-40"
                 href="/"
             >
-                <div className="w-32 text-white md:w-40">Logo</div>
+                <Image
+                    src={Logo}
+                    alt="Website Logo"
+                    height={0}
+                    width={0}
+                    className="h-[150px] w-[250px]"
+                    priority
+                />
             </Link>
             <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
                 <NavLinks />

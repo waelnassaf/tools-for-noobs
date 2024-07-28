@@ -10,7 +10,6 @@ import { FormError } from "@/components/form-error"
 import { FormSuccess } from "@/components/form-success"
 
 import { reset } from "@/server/reset"
-import Link from "next/link"
 
 const ResetForm = () => {
     const [error, setError] = useState<string | undefined>("")

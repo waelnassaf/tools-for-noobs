@@ -44,3 +44,13 @@ export async function getDesc(toolName: string) {
 
     return tool ? tool.description : null
 }
+
+export async function getToolBySlug(slug: string) {
+    const tool = await prisma.tool.findUnique({
+        where: {
+            slug,
+        },
+    })
+
+    return tool ? { description: tool.description, name: tool.name } : null
+}
