@@ -1,6 +1,7 @@
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend("re_TvvPTS5b_DreTGnq8ZeH8bVEEPHfoCyU8")
 
 const domain = process.env.NEXT_PUBLIC_APP_URL
 
@@ -32,5 +33,19 @@ export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
         to: email,
         subject: "2FA Code",
         html: `<p>Use this 2FA code: ${token} to continue the login</p>`,
+    })
+}
+
+export const sendUserContactEmail = async (
+    name: string,
+    email: string,
+    subject: string,
+    message: string
+) => {
+    await resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: "waelassaf121@gmail.com",
+        subject: subject,
+        html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
     })
 }

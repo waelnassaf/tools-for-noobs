@@ -2,7 +2,10 @@ import { Metadata } from "next"
 import React from "react"
 
 export const metadata: Metadata = {
-    title: `Image Tools`,
+    title: {
+        template: "%s - Image Tools",
+        default: "Image Tools",
+    },
     description: "Use our large collection of image manipulation tools.",
 }
 

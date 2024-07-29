@@ -78,3 +78,18 @@ export const ToolSchema = z.object({
         message: "Category ID must be a positive integer!",
     }),
 })
+
+export const ContactSchema = z.object({
+    name: z.string().min(1, {
+        message: "Name is required!",
+    }),
+    email: z.string().email({
+        message: "Invalid Email!",
+    }),
+    subject: z.string().min(1, {
+        message: "Subject is required!",
+    }),
+    message: z.string().min(1, {
+        message: "Message is required!",
+    }),
+})

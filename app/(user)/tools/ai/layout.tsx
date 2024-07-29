@@ -2,7 +2,10 @@ import { Metadata } from "next"
 import React from "react"
 
 export const metadata: Metadata = {
-    title: `AI Tools`,
+    title: {
+        template: "%s - AI Tools",
+        default: "AI Tools",
+    },
     description: "Use our large collection of AI tools.",
 }
 

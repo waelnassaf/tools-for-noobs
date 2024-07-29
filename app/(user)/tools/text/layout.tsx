@@ -2,7 +2,10 @@ import { Metadata } from "next"
 import React from "react"
 
 export const metadata: Metadata = {
-    title: "Text Tools",
+    title: {
+        template: "%s - Text Tools",
+        default: "Text Tools",
+    },
     description: "Use our large collection of text manipulation tools.",
 }
 

@@ -40,6 +40,7 @@ async function ToolsTable() {
                     <tr>
                         <th>Available</th>
                         <th>Name</th>
+                        <th>Slug</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -64,6 +65,7 @@ async function ToolsTable() {
                                 )}
                             </th>
                             <td>{tool.name}</td>
+                            <td>{tool.slug}</td>
 
                             <td>
                                 <div className="dropdown dropdown-hover">
@@ -77,7 +79,7 @@ async function ToolsTable() {
                                     </div>
                                     <ul
                                         tabIndex={0}
-                                        className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                                        className="dropdown-content menu bg-base-100 rounded-box z-[1] p-2 shadow"
                                     >
                                         <li>
                                             <Link

@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css"
 import { SessionProvider } from "next-auth/react"
 import { auth } from "@/auth"
 import React from "react"
+import NextTopLoader from "nextjs-toploader"
 
 export const metadata = {
     title: {
@@ -27,7 +28,15 @@ export default async function RootLayout({
             <ThemeContextProvider>
                 <html lang="en">
                     <GoogleAdsense pId="5272830813458540" />
-                    <body className="font-inter dark:bg-white">{children}</body>
+                    <body className="font-inter dark:bg-white">
+                        <NextTopLoader
+                            color="#0099de"
+                            height={2}
+                            shadow="0 0 3px #0099de,0 0 1px #0099de"
+                            showSpinner={false}
+                        />
+                        {children}
+                    </body>
                 </html>
             </ThemeContextProvider>
         </SessionProvider>

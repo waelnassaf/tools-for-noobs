@@ -19,7 +19,7 @@ export async function createTool(prevState: unknown, formData: FormData) {
         await db.tool.create({
             data: {
                 id: await getLatestToolId(),
-                isAvailableForPublic: true,
+                isAvailableForPublic: false,
                 name: data.name,
                 description: data.description,
                 slug: slugify(data.name),
@@ -58,12 +58,12 @@ export async function updateTool(
         data: {
             name: data.name,
             description: data.description,
+            categoryId: data.categoryId,
         },
     })
 
     revalidatePath("/")
     revalidatePath("/admin/tools")
-
     redirect("/admin/tools")
 }
 

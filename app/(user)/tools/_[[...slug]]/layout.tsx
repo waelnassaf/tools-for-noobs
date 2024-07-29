@@ -2,14 +2,15 @@
 //
 // import type { Metadata } from "next"
 // import { getToolBySlug } from "@/utils"
+// // @ts-ignore
 // const tool = await getToolBySlug("keyword-extractor")
 //
 // const { name, description } = tool
-// a
+//
 // export async function generateMetadata(): Promise<Metadata> {
 //     return {
-//         title: name,
-//         description: description,
+//         title: "name",
+//         description: "description",
 //     }
 // }
 //

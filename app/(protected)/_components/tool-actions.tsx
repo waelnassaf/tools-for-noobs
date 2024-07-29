@@ -3,6 +3,7 @@
 import { useTransition } from "react"
 import { deleteTool, toggleToolAvailability } from "@/server/tools"
 import { useRouter } from "next/navigation"
+import clsx from "clsx"
 
 export function ActiveToggleDropdownItem({
     slug,
@@ -22,7 +23,10 @@ export function ActiveToggleDropdownItem({
                     router.refresh()
                 })
             }}
-            className={isPending ? "pointer-events-none opacity-20" : ""}
+            className={clsx(
+                isPending && "pointer-events-none opacity-20",
+                "py-2 cursor-pointer"
+            )}
         >
             {isAvailableForPublic ? "Deactivate" : "Activate"}
         </li>
@@ -40,6 +44,10 @@ export function DeleteDropdownItem({ slug }: { slug: string }) {
                     router.refresh()
                 })
             }}
+            className={clsx(
+                isPending && "pointer-events-none opacity-20",
+                "text-red-500 py-2 cursor-pointer"
+            )}
         >
             Delete
         </li>
