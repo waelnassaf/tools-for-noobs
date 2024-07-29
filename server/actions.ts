@@ -1,8 +1,6 @@
 "use server"
 
 import db from "@/db/db"
-import { signIn } from "@/auth"
-import { AuthError } from "next-auth"
 
 interface ToolQuery {
     where: {
@@ -32,7 +30,6 @@ export const getTools = async ({
         const query: ToolQuery = {
             where: {},
         }
-
         if (sq) {
             query.where.name = {
                 contains: sq,
@@ -44,7 +41,6 @@ export const getTools = async ({
         if (!includeNonActive) {
             query.where.isAvailableForPublic = true
         }
-
         if (!isNaN(Number(limit))) {
             query.take = Number(limit)
         }
