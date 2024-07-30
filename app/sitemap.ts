@@ -5,6 +5,7 @@ import { getTools } from "@/server/actions"
 //page-sitemap
 //tools-sitemap
 //categories-sitemap
+export const dynamic = "force-dynamic"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const data = await getTools({ limit: 1000 })
