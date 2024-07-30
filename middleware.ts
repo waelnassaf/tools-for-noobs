@@ -42,6 +42,7 @@ export default auth((req): any => {
             new URL(`/auth/login?callbackUrl=${encodedCallbackUrl}`, nextUrl)
         )
     }
+
     // Returning null means allow this, don't do anything if this happens
     return null
 })
