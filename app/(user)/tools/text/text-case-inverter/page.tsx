@@ -7,13 +7,14 @@ export default function TextCaseInverter() {
     const [textResult, setTextResult] = useState<string>("")
     const [showAlert, setShowAlert] = useState(false)
     const [isEmpty, setIsEmpty] = useState(true)
-
     const textarea = useRef<HTMLTextAreaElement>(null)
     const alertDiv = useRef<HTMLDivElement>(null)
 
     const pages = ["Home", "Text Tools", "Text Case Inverter"]
 
     const handleTextInversion = () => {
+        setIsEmpty(Boolean(!textarea.current?.value.trim().length))
+        setShowAlert(true)
         if (textarea.current) {
             const text = textarea.current.value
             const transformedText = Array.from(text)
@@ -24,9 +25,13 @@ export default function TextCaseInverter() {
                 )
                 .join("")
             setTextResult(transformedText)
-            setShowAlert(true)
-            setIsEmpty(false)
         }
+        // By using setTimeout with a delay of 0 milliseconds,
+        // we can ensure that the scrolling code is executed
+        // after the state update has taken place and the alert div is rendered.
+        setTimeout(() => {
+            alertDiv.current?.scrollIntoView({ behavior: "smooth" })
+        }, 0)
     }
 
     return (
