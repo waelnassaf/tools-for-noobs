@@ -31,13 +31,47 @@ export default function Home() {
                         text.slice(1).toLowerCase()
                     break
                 case "title":
+                    const minorWords = new Set([
+                        "and",
+                        "or",
+                        "but",
+                        "nor",
+                        "a",
+                        "an",
+                        "the",
+                        "as",
+                        "at",
+                        "by",
+                        "for",
+                        "in",
+                        "of",
+                        "on",
+                        "to",
+                        "up",
+                        "with",
+                        "is",
+                    ])
+
                     transformedText = text.replace(
                         /\w\S*/g,
-                        (txt) =>
-                            txt.charAt(0).toUpperCase() +
-                            txt.substr(1).toLowerCase()
+                        (txt, index, allText) => {
+                            const lowerCased = txt.toLowerCase()
+                            if (
+                                index === 0 ||
+                                index + txt.length === allText.length ||
+                                !minorWords.has(lowerCased)
+                            ) {
+                                return (
+                                    txt.charAt(0).toUpperCase() +
+                                    lowerCased.substr(1)
+                                )
+                            } else {
+                                return lowerCased
+                            }
+                        }
                     )
                     break
+
                 case "random":
                     transformedText = Array.from(text)
                         .map((char) =>
