@@ -11,6 +11,9 @@ interface ToolQuery {
         isAvailableForPublic?: boolean
     }
     take?: number
+    orderBy?: {
+        id: "asc" | "desc"
+    }
 }
 
 interface GetToolsParams {
@@ -29,6 +32,9 @@ export const getTools = async ({
     try {
         const query: ToolQuery = {
             where: {},
+            orderBy: {
+                id: "desc",
+            },
         }
         if (sq) {
             query.where.name = {
@@ -44,6 +50,7 @@ export const getTools = async ({
         if (!isNaN(Number(limit))) {
             query.take = Number(limit)
         }
+
         // throw new Error("Testing errors")
 
         // Fetching the tools from the database
