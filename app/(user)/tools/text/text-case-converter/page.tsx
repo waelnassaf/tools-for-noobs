@@ -38,6 +38,15 @@ export default function Home() {
                             txt.substr(1).toLowerCase()
                     )
                     break
+                case "random":
+                    transformedText = Array.from(text)
+                        .map((char) =>
+                            Math.random() > 0.5
+                                ? char.toUpperCase()
+                                : char.toLowerCase()
+                        )
+                        .join("")
+                    break
                 default:
                     transformedText = text
             }
@@ -86,6 +95,11 @@ export default function Home() {
                     <SubmitButton
                         text={"Title Case Text"}
                         handleClick={() => handleTextTransformation("title")}
+                        className="w-full sm:w-auto"
+                    />
+                    <SubmitButton
+                        text={"Random Case Text"}
+                        handleClick={() => handleTextTransformation("random")}
                         className="w-full sm:w-auto"
                     />
                 </div>
