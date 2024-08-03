@@ -58,6 +58,7 @@ export interface ResultAlertProps {
     message: string
     hideAlert: () => void
     alertDiv: React.RefObject<HTMLDivElement>
+    additionalStyling?: string
 }
 
 export interface SubmitButtonProps {
