@@ -3,6 +3,7 @@ import { CustomFilter, SearchBar, ToolCard, ShowMore } from "@/components"
 import { categoriesOfTools } from "@/constants"
 import { getTools } from "@/server/actions"
 
+//Using the searchParams prop on a Page will opt the page into dynamic rendering at request time.
 export default async function Home({ searchParams }: SearchParamsProps) {
     const allTools = await getTools({
         sq: searchParams.sq,
