@@ -78,10 +78,10 @@ export default function Home() {
                     <p>
                         This tool <b>Find Shortest Line In A Text</b> is a
                         practical utility for anyone looking to identify the
-                        shortest line in their text. Whether you're analyzing
-                        logs, reviewing code, or examining any form of text,
-                        this tool helps you quickly find the shortest single
-                        line, aiding in various text-processing tasks.
+                        shortest line in their text. Whether you&apos;re
+                        analyzing logs, reviewing code, or examining any form of
+                        text, this tool helps you quickly find the shortest
+                        single line, aiding in various text-processing tasks.
                     </p>
                 </div>
             </div>
