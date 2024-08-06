@@ -39,6 +39,7 @@
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^1.6.12",
     "postcss": "8.4.31",
+    "randexp": "^0.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
