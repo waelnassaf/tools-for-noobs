@@ -1,4 +1,4 @@
-const toolName = "Find Longest Line In A Text"
+const toolName = "Find Shortest Line In A Text"
 import { getDesc } from "@/utils"
 import type { Metadata } from "next"
 

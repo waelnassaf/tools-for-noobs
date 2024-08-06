@@ -11,24 +11,24 @@ export default function Home() {
     const textarea = useRef<HTMLTextAreaElement>(null)
     const alertDiv = useRef<HTMLDivElement>(null)
 
-    const findLongestLine = () => {
+    const findShortestLine = () => {
         const text = textarea.current?.value
 
         // Check if the text is empty
         setIsEmpty(Boolean(!text?.trim().length))
 
         if (text !== undefined) {
-            // Find the longest line in the text
-            const longestLine = text
-                ?.split(/\n/)
-                .reduce(
-                    (longest, current) =>
-                        current.length > longest.length ? current : longest,
-                    ""
-                )
+            // Find the shortest line in the text
+            const shortestLine = text?.split(/\n/).reduce(
+                (shortest, current) =>
+                    current.length < shortest.length && current.trim()
+                        ? current
+                        : shortest,
+                text.split(/\n/)[0] // Initialize with the first line
+            )
 
             // Set the result
-            setTextResult(longestLine)
+            setTextResult(shortestLine)
         }
 
         // Show the alert
@@ -39,15 +39,15 @@ export default function Home() {
         }, 0)
     }
 
-    const pages = ["Home", "Text Tools", "Find Longest Line"]
+    const pages = ["Home", "Text Tools", "Find Shortest Line"]
 
     return (
         <>
             <Breadcrumbs pages={pages} />
             <div className="mt-12 padding-x padding-y max-width prose">
-                <h1>Find Longest Line In A Text</h1>
+                <h1>Find Shortest Line In A Text</h1>
                 <p>
-                    Paste the text in the following input to get the longest
+                    Paste the text in the following input to get the shortest
                     line:
                 </p>
                 <textarea
@@ -57,8 +57,8 @@ export default function Home() {
                 ></textarea>
 
                 <SubmitButton
-                    text={"Find Longest Line"}
-                    handleClick={findLongestLine}
+                    text={"Find Shortest Line"}
+                    handleClick={findShortestLine}
                 />
 
                 <ResultAlert
@@ -74,14 +74,14 @@ export default function Home() {
                 </div>
 
                 <div className="tool-content">
-                    <h2>About Find Longest Line</h2>
+                    <h2>About Find Shortest Line</h2>
                     <p>
-                        This tool <b>Find Longest Line In A Text</b> is a
+                        This tool <b>Find Shortest Line In A Text</b> is a
                         practical utility for anyone looking to identify the
-                        longest line in their text. Whether you&apos;re
-                        analyzing logs, reviewing code, or examining any form of
-                        text, this tool helps you quickly find the most extended
-                        single line, aiding in various text-processing tasks.
+                        shortest line in their text. Whether you're analyzing
+                        logs, reviewing code, or examining any form of text,
+                        this tool helps you quickly find the shortest single
+                        line, aiding in various text-processing tasks.
                     </p>
                 </div>
             </div>
