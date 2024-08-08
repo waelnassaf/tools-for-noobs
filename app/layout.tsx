@@ -1,3 +1,4 @@
+// These styles apply to every route in the application
 import "./globals.css"
 import { GoogleAdsense } from "@/components"
 import ThemeContextProvider from "@/contexts/ThemeContext"
