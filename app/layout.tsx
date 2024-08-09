@@ -29,7 +29,7 @@ export default async function RootLayout({
             <ThemeContextProvider>
                 <html lang="en" className={roboto.className}>
                     <GoogleAdsense pId="5272830813458540" />
-                    <body className="font-inter dark:bg-white">
+                    <body className="dark:bg-white">
                         <NextTopLoader
                             color="#0099de"
                             height={2}
