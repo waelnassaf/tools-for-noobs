@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
-import base32 from "hi-base32" // Assuming you have the 'hi-base32' package installed
+import base32 from "hi-base32"
 
 export default function Home() {
     const [textResult, setTextResult] = useState<string>("")

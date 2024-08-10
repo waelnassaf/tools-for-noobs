@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { Breadcrumbs, ResultAlert, SubmitButton } from "@/components"
-import base58 from "bs58"
+var ascii85 = require("ascii85")
 
 export default function Home() {
     const [textResult, setTextResult] = useState<string>("")
@@ -12,7 +12,7 @@ export default function Home() {
     const textarea = useRef<HTMLTextAreaElement>(null)
     const alertDiv = useRef<HTMLDivElement>(null)
 
-    const pages = ["Home", "Text Tools", "Base58 Text Encoder and Decoder"]
+    const pages = ["Home", "Text Tools", "Ascii85 Text Encoder and Decoder"]
 
     const handleTextTransformation = (transformationType: string) => {
         if (textarea.current) {
@@ -21,15 +21,13 @@ export default function Home() {
 
             switch (transformationType) {
                 case "encode":
-                    transformedText = base58.encode(Buffer.from(text, "utf-8"))
+                    transformedText = ascii85.encode(text).toString()
                     break
                 case "decode":
                     try {
-                        transformedText = Buffer.from(
-                            base58.decode(text)
-                        ).toString("utf-8")
+                        transformedText = ascii85.decode(text).toString() // Decode using base85
                     } catch (e) {
-                        transformedText = "Invalid Base58 string"
+                        transformedText = "Invalid Ascii85 string"
                     }
                     break
                 default:
@@ -45,10 +43,10 @@ export default function Home() {
         <>
             <Breadcrumbs pages={pages} />
             <div className="mt-12 padding-x padding-y max-width prose">
-                <h1>Base58 Text Encoder and Decoder</h1>
+                <h1>Ascii85 Text Encoder and Decoder</h1>
                 <p>
                     Paste the text in the following input to encode or decode it
-                    into/from Base58 format:
+                    into/from Ascii85 format:
                 </p>
                 <textarea
                     className="textarea textarea-lg block textarea-bordered
@@ -59,12 +57,12 @@ export default function Home() {
 
                 <div className="flex flex-wrap gap-4">
                     <SubmitButton
-                        text={"Encode to Base58"}
+                        text={"Encode to Ascii85"}
                         handleClick={() => handleTextTransformation("encode")}
                         className="w-full sm:w-auto"
                     />
                     <SubmitButton
-                        text={"Decode from Base58"}
+                        text={"Decode from Ascii85"}
                         handleClick={() => handleTextTransformation("decode")}
                         className="w-full sm:w-auto"
                     />
@@ -83,14 +81,14 @@ export default function Home() {
                 </div>
 
                 <div className="tool-content">
-                    <h2>About Base58 Text Encoder and Decoder</h2>
+                    <h2>About Ascii85 Text Encoder and Decoder</h2>
                     <p>
-                        This tool, <b>Base58 Text Encoder and Decoder</b>, is a
-                        handy utility for encoding text into Base58 format and
-                        decoding Base58 text back to its original form. Whether
+                        This tool, <b>Ascii85 Text Encoder and Decoder</b>, is a
+                        handy utility for encoding text into Ascii85 format and
+                        decoding Ascii85 text back to its original form. Whether
                         you&apos;re a programmer, data analyst, or just dealing
                         with text transformations, this tool helps you
-                        effortlessly convert text to and from Base58.
+                        effortlessly convert text to and from Ascii85.
                     </p>
                 </div>
             </div>
