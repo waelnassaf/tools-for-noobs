@@ -53,6 +53,7 @@
     "sonner": "^1.5.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
+    "uuencode": "^0.0.4",
     "uuid": "^10.0.0",
     "xlsx": "^0.18.5",
     "zod": "^3.23.8"
