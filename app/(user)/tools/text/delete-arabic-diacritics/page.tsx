@@ -68,7 +68,7 @@ export default function DeleteArabicDiacritics() {
                     <h2>About Delete Arabic Diacritics</h2>
                     <p>
                         This tool <b>Delete Arabic Diacritics</b> is designed to
-                        remove diacritical marks from Arabic text. It's
+                        remove diacritical marks from Arabic text. It&apos;s
                         especially useful for simplifying text processing or
                         preparing Arabic script for environments that do not
                         support diacritics. By removing these marks, the text
