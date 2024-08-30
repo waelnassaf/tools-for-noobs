@@ -3,6 +3,7 @@ import { Header, Navbar, Footer, Divider, GoogleAdsense } from "@/components"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import React from "react"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 export const metadata = {
     title: {
@@ -18,14 +19,17 @@ export default async function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <main className="overflow-hidden">
-            <Header />
-            <Divider />
-            <Navbar />
-            <Divider />
-            {children}
-            <ToastContainer />
-            <Footer />
-        </main>
+        <>
+            <main className="overflow-hidden">
+                <Header />
+                <Divider />
+                <Navbar />
+                <Divider />
+                {children}
+                <ToastContainer />
+                <Footer />
+            </main>
+            <GoogleAnalytics gaId="G-P5T3KLEN4L" />
+        </>
     )
 }
