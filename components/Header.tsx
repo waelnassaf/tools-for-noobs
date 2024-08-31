@@ -16,7 +16,6 @@ const Header = () => {
                         width={0}
                         className="h-[150px] w-[250px]"
                         priority
-                        placeholder="blur"
                     />
                 </Link>
 

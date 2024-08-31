@@ -13,12 +13,6 @@ export function formatCurrency(amount: number) {
     return CURRENCY_FORMATTER.format(amount)
 }
 
-const NUMBER_FORMATTER = new Intl.NumberFormat("en-US")
-
-export function formatNumber(number: number) {
-    return NUMBER_FORMATTER.format(number)
-}
-
 export default function FormatMoneyNumber() {
     const [textResult, setTextResult] = useState<string>("")
     const [showAlert, setShowAlert] = useState(false)
@@ -36,7 +30,7 @@ export default function FormatMoneyNumber() {
             const numbers = text.split(/\s+/).map(Number)
             const formattedNumbers = numbers
                 .map((num) => (!isNaN(num) ? formatCurrency(num) : num))
-                .join(" ")
+                .join("\n")
             setTextResult(formattedNumbers)
         }
         // Ensure the alert div is scrolled into view after state update
