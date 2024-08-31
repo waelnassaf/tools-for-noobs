@@ -59,6 +59,7 @@ export async function updateTool(
             name: data.name,
             description: data.description,
             categoryId: data.categoryId,
+            slug: slugify(data.name),
         },
     })
 
