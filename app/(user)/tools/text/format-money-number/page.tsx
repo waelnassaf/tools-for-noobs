@@ -80,10 +80,10 @@ export default function FormatMoneyNumber() {
                     <p>
                         This tool <b>Format Money Number</b> is a useful utility
                         for anyone who needs to format numbers as currency.
-                        Whether you're dealing with financial data, reports, or
-                        any kind of numeric input, this tool helps you easily
-                        transform raw numbers into properly formatted currency
-                        values.
+                        Whether you&apos;re dealing with financial data,
+                        reports, or any kind of numeric input, this tool helps
+                        you easily transform raw numbers into properly formatted
+                        currency values.
                     </p>
                 </div>
             </div>
