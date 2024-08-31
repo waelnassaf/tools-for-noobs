@@ -9,7 +9,7 @@ const CURRENCY_FORMATTER = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 0,
 })
 
-export function formatCurrency(amount: number) {
+function formatCurrency(amount: number) {
     return CURRENCY_FORMATTER.format(amount)
 }
 
