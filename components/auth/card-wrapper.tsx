@@ -4,6 +4,7 @@ import React from "react"
 import { Header } from "@/components/auth/header"
 import { Social } from "@/components/auth/social"
 import { BackButton } from "@/components/auth/back-button"
+import { Divider } from "@/components"
 
 interface CardWrapperProps {
     children: React.ReactNode
@@ -27,7 +28,12 @@ const CardWrapper = ({
                     <Header label={headerLabel} />
                 </h2>
                 {children}
-                {showSocial && <Social />}
+                {showSocial && (
+                    <>
+                        <div className="divider text-gray-400">OR</div>
+                        <Social />
+                    </>
+                )}
                 <BackButton
                     backButtonHref={backButtonHref}
                     backButtonLabel={backButtonLabel}

@@ -13,7 +13,7 @@ export const metadata = {
     description: "A toolset designed for many easy-to-hard use cases.",
 }
 
-export default async function RootLayout({
+export default async function PublicLayout({
     children,
 }: {
     children: React.ReactNode
