@@ -28,7 +28,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
             <ThemeContextProvider>
                 <html lang="en" className={roboto.className}>
-                    {/*<GoogleAdsense pId="5272830813458540" />*/}
+                    <GoogleAdsense pId="5272830813458540" />
                     <body className="dark:bg-white">
                         <NextTopLoader
                             color="#0099de"
